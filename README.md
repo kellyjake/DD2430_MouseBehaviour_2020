@@ -4,6 +4,8 @@
 ### By Frans Norden, Valter Lundegårdh, Jake Kelly & Magnus Pierrau
 ### Supervised by Arvind Kumar (KTH), Andreas Kardamakis (KI) and with assistance from Dimitrios Mariatos
 
+[Pdf of report available here](DD2430_Mouse_Behaviour.pdf)
+
 ## Abstract
 
 In this project behaviour of free roaming mice is analysed through feature tracking with a Deep Neural Network and segmentation into states with an Autoregressive Hidden Markov Model (ARHMM). We found through a time series analysis that mouse behaviour could be found on a time scale with mean duration of 200-400 ms. We therefore forced the ARHMM model, through regularisation, to find states on that time scale. This lead us to finding between nine and eleven discrete states in an 8 minute long video of a free roaming mouse. We proved the rigorousness in this through analysing the cross likelihood between states, visually inspecting the videos with assigned states  and the state trajectories in parameter space. Our results further showed promising results regarding generalisation between two different free roaming mice in a laboratory setting. 
