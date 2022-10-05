@@ -1,4 +1,4 @@
-# DD2430 - Project Course in Data Science
+# DD2430 - Project Course in Data Science (Cloned Repo)
 # Segmenting behaviour of free roaming mice with Autoregressive Hidden Markov Models
 ## KTH Royal Institute of Technology & Kardamakis Group at Department of Neuroscience at Karolinska Institutet
 ### By Frans Norden, Valter Lundegårdh, Jake Kelly & Magnus Pierrau
