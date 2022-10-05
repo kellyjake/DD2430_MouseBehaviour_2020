@@ -4,7 +4,7 @@
 ### By Frans Norden, Valter Lundegårdh, Jake Kelly & Magnus Pierrau
 ### Supervised by Arvind Kumar (KTH), Andreas Kardamakis (KI) and with assistance from Dimitrios Mariatos
 
-[Pdf of report available here](DD2430_Mouse_Behaviour.pdf)
+## [Pdf of report available here](DD2430_Mouse_Behaviour.pdf)
 
 ## Abstract
 
