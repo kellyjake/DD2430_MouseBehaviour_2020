@@ -1,7 +1,0 @@
-sub optimal stuff
-
-2. the parametres like lases pulse characteristics pump time on inter trial interval and reward available time should be changable.
-
-3. also the autorun parametres for the lasers should be adjustable everytime i call an autorun... 
-
-other than those minor details, the program is perfect!!!!
