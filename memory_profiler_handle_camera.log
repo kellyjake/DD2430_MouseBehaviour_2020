@@ -1,0 +1,1745 @@
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    521.5 MiB    521.5 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    521.5 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    521.5 MiB      0.0 MiB           1       faulthandler.enable()
+   151    521.5 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    521.5 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    521.5 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    521.5 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    521.5 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    538.0 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    538.0 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   163                                             
+   164                                             # create projector object
+   165                                         
+   166                                             # Goes on until user stops
+   167    555.2 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   168    538.0 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   169    538.0 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   170                                         
+   171    538.0 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   172    538.0 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   173    538.0 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   174                                         
+   175    538.0 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   176                                         
+   177    538.0 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   178                                         
+   179                                         
+   180    538.0 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   181    538.0 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   182    538.0 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   183    538.0 MiB      0.0 MiB           1                                                           vidName, 
+   184    538.0 MiB      0.0 MiB           1                                                           csvName, 
+   185    538.0 MiB      0.0 MiB           1                                                           spec_dict), 
+   186    538.0 MiB      0.0 MiB           1                                                   daemon=False)
+   187    538.0 MiB      0.0 MiB           1           cam_process.start()
+   188                                          
+   189    538.0 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   190    538.0 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   191    538.0 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   192    538.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   193                                         
+   194    548.7 MiB     10.7 MiB           1           disp.start_video_stream()
+   195    557.0 MiB      8.3 MiB           1           disp.start_projector()
+   196    557.0 MiB      0.0 MiB           1           print("Started projector")
+   197                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   198    557.0 MiB      0.0 MiB           1           while True:
+   199                                         
+   200    569.2 MiB      1.0 MiB        6098               disp.update_stream()
+   201    569.2 MiB      9.6 MiB        6098               disp.update_projector()
+   202                                         
+   203                                                     # check for command in projector queue
+   204                                                     # if command
+   205                                                     # issue it to projector object
+   206                                                     # display image from projector object on screen
+   207                                                     # try to pop img from queue from cam_function
+   208                                                     # display most recent image
+   209                                                     
+   210    569.2 MiB      1.5 MiB        6098               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   211    569.2 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   212    569.2 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   213    569.2 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   214    568.5 MiB     -0.6 MiB           1                   disp.end_stream()
+   215    554.8 MiB    -13.7 MiB           1                   disp.stop_projector()
+   216    554.8 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   217    554.8 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   218    555.2 MiB      0.4 MiB           1                   cam_process.join() # Wrap up recording process
+   219    555.2 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   220                                                         
+   221    555.2 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   222    555.2 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   223    555.2 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   224    555.2 MiB      0.0 MiB           1                   vprint("User ready!")
+   225    555.2 MiB      0.0 MiB           1                   break    
+   226                                             
+   227    555.2 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    522.1 MiB    522.1 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    522.1 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    522.1 MiB      0.0 MiB           1       faulthandler.enable()
+   151    522.1 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    522.1 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    522.1 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    522.1 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    522.1 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    538.6 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    538.6 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   163                                             
+   164                                             # create projector object
+   165                                         
+   166                                             # Goes on until user stops
+   167    555.6 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   168    538.6 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   169    538.6 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   170                                         
+   171    538.6 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   172    538.6 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   173    538.6 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   174                                         
+   175    538.6 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   176                                         
+   177    538.6 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   178                                         
+   179                                         
+   180    538.6 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   181    538.6 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   182    538.6 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   183    538.6 MiB      0.0 MiB           1                                                           vidName, 
+   184    538.6 MiB      0.0 MiB           1                                                           csvName, 
+   185    538.6 MiB      0.0 MiB           1                                                           spec_dict), 
+   186    538.6 MiB      0.0 MiB           1                                                   daemon=False)
+   187    538.6 MiB      0.0 MiB           1           cam_process.start()
+   188                                          
+   189    538.6 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   190    538.6 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   191    538.6 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   192    538.6 MiB      0.0 MiB           1           cam_handler_ready.set()
+   193                                         
+   194    549.5 MiB     10.9 MiB           1           disp.start_video_stream()
+   195    557.7 MiB      8.3 MiB           1           disp.start_projector()
+   196    557.7 MiB      0.0 MiB           1           print("Started projector")
+   197                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   198    557.7 MiB      0.0 MiB           1           while True:
+   199                                         
+   200    569.9 MiB     -9.6 MiB         556               disp.update_stream()
+   201    569.9 MiB      0.2 MiB         556               disp.update_projector()
+   202                                         
+   203                                                     # check for command in projector queue
+   204                                                     # if command
+   205                                                     # issue it to projector object
+   206                                                     # display image from projector object on screen
+   207                                                     # try to pop img from queue from cam_function
+   208                                                     # display most recent image
+   209                                                     
+   210    569.9 MiB    -10.6 MiB         556               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   211    569.8 MiB     -0.1 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   212    569.8 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   213    569.8 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   214    569.1 MiB     -0.7 MiB           1                   disp.end_stream()
+   215    555.3 MiB    -13.8 MiB           1                   disp.stop_projector()
+   216    555.3 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   217    555.3 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   218    555.6 MiB      0.3 MiB           1                   cam_process.join() # Wrap up recording process
+   219    555.6 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   220                                                         
+   221    555.6 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   222    555.6 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   223    555.6 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   224    555.6 MiB      0.0 MiB           1                   vprint("User ready!")
+   225    555.6 MiB      0.0 MiB           1                   break    
+   226                                             
+   227    555.6 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    522.0 MiB    522.0 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    522.0 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    522.0 MiB      0.0 MiB           1       faulthandler.enable()
+   151    522.0 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    522.0 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    522.0 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    522.0 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    522.0 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    538.5 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    538.5 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   163                                             
+   164                                             # create projector object
+   165                                         
+   166                                             # Goes on until user stops
+   167    555.9 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   168    538.5 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   169    538.5 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   170                                         
+   171    538.5 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   172    538.5 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   173    538.5 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   174                                         
+   175    538.5 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   176                                         
+   177    538.5 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   178                                         
+   179                                         
+   180    538.5 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   181    538.5 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   182    538.5 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   183    538.5 MiB      0.0 MiB           1                                                           vidName, 
+   184    538.5 MiB      0.0 MiB           1                                                           csvName, 
+   185    538.5 MiB      0.0 MiB           1                                                           spec_dict), 
+   186    538.5 MiB      0.0 MiB           1                                                   daemon=False)
+   187    538.6 MiB      0.0 MiB           1           cam_process.start()
+   188                                          
+   189    538.6 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   190    538.6 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   191    538.6 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   192    538.6 MiB      0.0 MiB           1           cam_handler_ready.set()
+   193                                         
+   194    549.4 MiB     10.8 MiB           1           disp.start_video_stream()
+   195    557.8 MiB      8.4 MiB           1           disp.start_projector()
+   196    557.8 MiB      0.0 MiB           1           print("Started projector")
+   197                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   198    557.8 MiB      0.0 MiB           1           while True:
+   199                                         
+   200    570.0 MiB      1.4 MiB       10680               disp.update_stream()
+   201    570.0 MiB     10.8 MiB       10680               disp.update_projector()
+   202                                         
+   203                                                     # check for command in projector queue
+   204                                                     # if command
+   205                                                     # issue it to projector object
+   206                                                     # display image from projector object on screen
+   207                                                     # try to pop img from queue from cam_function
+   208                                                     # display most recent image
+   209                                                     
+   210    570.0 MiB      0.1 MiB       10680               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   211    570.0 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   212    570.0 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   213    570.0 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   214    569.3 MiB     -0.7 MiB           1                   disp.end_stream()
+   215    555.6 MiB    -13.7 MiB           1                   disp.stop_projector()
+   216    555.6 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   217    555.6 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   218    555.9 MiB      0.3 MiB           1                   cam_process.join() # Wrap up recording process
+   219    555.9 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   220                                                         
+   221    555.9 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   222    555.9 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   223    555.9 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   224    555.9 MiB      0.0 MiB           1                   vprint("User ready!")
+   225    555.9 MiB      0.0 MiB           1                   break    
+   226                                             
+   227    555.9 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    521.6 MiB    521.6 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    521.6 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    521.6 MiB      0.0 MiB           1       faulthandler.enable()
+   151    521.6 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    521.6 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    521.6 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    521.6 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    521.6 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    538.0 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    538.0 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   163    538.0 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   164    538.0 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   165                                             # create projector object
+   166                                         
+   167                                             # Goes on until user stops
+   168   3782.6 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   169    538.0 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   170    538.0 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   171                                         
+   172    538.0 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   173    538.0 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   174    538.0 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   175                                         
+   176    538.0 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   177                                         
+   178    538.0 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   179                                         
+   180                                         
+   181    538.0 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   182    538.0 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   183    538.0 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   184    538.0 MiB      0.0 MiB           1                                                           vidName, 
+   185    538.0 MiB      0.0 MiB           1                                                           csvName, 
+   186    538.0 MiB      0.0 MiB           1                                                           spec_dict), 
+   187    538.0 MiB      0.0 MiB           1                                                   daemon=False)
+   188    538.0 MiB      0.0 MiB           1           cam_process.start()
+   189                                          
+   190    538.0 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   191    538.0 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   192    538.0 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   193    538.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   194                                         
+   195    548.5 MiB     10.5 MiB           1           disp.start_video_stream()
+   196    556.9 MiB      8.4 MiB           1           disp.start_projector()
+   197    965.9 MiB    408.9 MiB           1           disp.init_online_processing()
+   198    965.9 MiB      0.0 MiB           1           print("Started projector")
+   199                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   200    965.9 MiB      0.0 MiB           1           while True:
+   201                                         
+   202   3796.0 MiB      0.8 MiB        1285               disp.update_stream()
+   203   3796.0 MiB   2829.3 MiB        1285               disp.update_projector()
+   204                                         
+   205                                                     # check for command in projector queue
+   206                                                     # if command
+   207                                                     # issue it to projector object
+   208                                                     # display image from projector object on screen
+   209                                                     # try to pop img from queue from cam_function
+   210                                                     # display most recent image
+   211                                                     
+   212   3796.0 MiB      0.0 MiB        1285               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   213   3796.0 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   214   3796.0 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   215   3796.0 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   216   3796.2 MiB      0.2 MiB           1                   disp.end_stream()
+   217   3782.4 MiB    -13.8 MiB           1                   disp.stop_projector()
+   218   3782.4 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   219   3782.4 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   220   3782.6 MiB      0.2 MiB           1                   cam_process.join() # Wrap up recording process
+   221   3782.6 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   222                                                         
+   223   3782.6 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   224   3782.6 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   225   3782.6 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   226   3782.6 MiB      0.0 MiB           1                   vprint("User ready!")
+   227   3782.6 MiB      0.0 MiB           1                   break    
+   228                                             
+   229   3782.6 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    521.2 MiB    521.2 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    521.2 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    521.2 MiB      0.0 MiB           1       faulthandler.enable()
+   151    521.2 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    521.2 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    521.2 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    521.2 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    521.2 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    537.6 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    537.6 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   163    537.6 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   164    537.6 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   165                                             # create projector object
+   166                                         
+   167                                             # Goes on until user stops
+   168   3887.6 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   169    537.6 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   170    537.6 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   171                                         
+   172    537.6 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   173    537.6 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   174    537.6 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   175                                         
+   176    537.6 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   177                                         
+   178    537.6 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   179                                         
+   180                                         
+   181    537.6 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   182    537.6 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   183    537.6 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   184    537.6 MiB      0.0 MiB           1                                                           vidName, 
+   185    537.6 MiB      0.0 MiB           1                                                           csvName, 
+   186    537.6 MiB      0.0 MiB           1                                                           spec_dict), 
+   187    537.6 MiB      0.0 MiB           1                                                   daemon=False)
+   188    537.7 MiB      0.0 MiB           1           cam_process.start()
+   189                                          
+   190    537.7 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   191    537.7 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   192    537.7 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   193    537.7 MiB      0.0 MiB           1           cam_handler_ready.set()
+   194                                         
+   195    548.2 MiB     10.6 MiB           1           disp.start_video_stream()
+   196    556.5 MiB      8.3 MiB           1           disp.start_projector()
+   197   3891.7 MiB   3335.2 MiB           1           disp.init_online_processing()
+   198   3891.7 MiB      0.0 MiB           1           print("Started projector")
+   199                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   200   3891.7 MiB      0.0 MiB           1           while True:
+   201                                         
+   202   3901.2 MiB      0.6 MiB        5062               disp.update_stream()
+   203   3901.2 MiB      8.8 MiB        5062               disp.update_projector()
+   204                                         
+   205                                                     # check for command in projector queue
+   206                                                     # if command
+   207                                                     # issue it to projector object
+   208                                                     # display image from projector object on screen
+   209                                                     # try to pop img from queue from cam_function
+   210                                                     # display most recent image
+   211                                                     
+   212   3901.2 MiB      0.0 MiB        5062               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   213   3901.2 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   214   3901.2 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   215   3901.2 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   216   3901.3 MiB      0.1 MiB           1                   disp.end_stream()
+   217   3887.5 MiB    -13.8 MiB           1                   disp.stop_projector()
+   218   3887.5 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   219   3887.5 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   220   3887.6 MiB      0.1 MiB           1                   cam_process.join() # Wrap up recording process
+   221   3887.6 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   222                                                         
+   223   3887.6 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   224   3887.6 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   225   3887.6 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   226   3887.6 MiB      0.0 MiB           1                   vprint("User ready!")
+   227   3887.6 MiB      0.0 MiB           1                   break    
+   228                                             
+   229   3887.6 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    521.4 MiB    521.4 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    521.4 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    521.4 MiB      0.0 MiB           1       faulthandler.enable()
+   151    521.4 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    521.4 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    521.4 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    521.4 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    521.4 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    537.9 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    537.9 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   163    537.9 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   164    537.9 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   165                                             # create projector object
+   166                                         
+   167                                             # Goes on until user stops
+   168   3784.4 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   169    537.9 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   170    537.9 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   171                                         
+   172    537.9 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   173    537.9 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   174    537.9 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   175                                         
+   176    537.9 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   177                                         
+   178    537.9 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   179                                         
+   180                                         
+   181    537.9 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   182    537.9 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   183    537.9 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   184    537.9 MiB      0.0 MiB           1                                                           vidName, 
+   185    537.9 MiB      0.0 MiB           1                                                           csvName, 
+   186    537.9 MiB      0.0 MiB           1                                                           spec_dict), 
+   187    537.9 MiB      0.0 MiB           1                                                   daemon=False)
+   188    538.0 MiB      0.0 MiB           1           cam_process.start()
+   189                                          
+   190    538.0 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   191    538.0 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   192    538.0 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   193    538.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   194                                         
+   195    548.9 MiB     11.0 MiB           1           disp.start_video_stream()
+   196    557.2 MiB      8.2 MiB           1           disp.start_projector()
+   197   3787.5 MiB   3230.4 MiB           1           disp.init_online_processing()
+   198   3787.5 MiB      0.0 MiB           1           print("Started projector")
+   199                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   200   3787.5 MiB      0.0 MiB           1           while True:
+   201                                         
+   202   3798.0 MiB     10.4 MiB        5949               disp.update_stream()
+   203   3798.0 MiB      0.1 MiB        5949               disp.update_projector()
+   204                                         
+   205                                                     # check for command in projector queue
+   206                                                     # if command
+   207                                                     # issue it to projector object
+   208                                                     # display image from projector object on screen
+   209                                                     # try to pop img from queue from cam_function
+   210                                                     # display most recent image
+   211                                                     
+   212   3798.0 MiB      0.0 MiB        5949               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   213   3798.0 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   214   3798.0 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   215   3798.0 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   216   3798.0 MiB      0.0 MiB           1                   disp.end_stream()
+   217   3784.3 MiB    -13.8 MiB           1                   disp.stop_projector()
+   218   3784.3 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   219   3784.3 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   220   3784.4 MiB      0.1 MiB           1                   cam_process.join() # Wrap up recording process
+   221   3784.4 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   222                                                         
+   223   3784.4 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   224   3784.4 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   225   3784.4 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   226   3784.4 MiB      0.0 MiB           1                   vprint("User ready!")
+   227   3784.4 MiB      0.0 MiB           1                   break    
+   228                                             
+   229   3784.4 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   144    522.0 MiB    522.0 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   145                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   146                                             """
+   147                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   148                                             """
+   149    522.0 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   150    522.0 MiB      0.0 MiB           1       faulthandler.enable()
+   151    522.0 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   152                                         
+   153    522.0 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   154                                         
+   155    522.0 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   156                                         
+   157    522.0 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   158                                         
+   159    522.0 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   160                                         
+   161    538.4 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   162    538.4 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   163    538.4 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue)
+   164    538.4 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   165                                             # create projector object
+   166                                         
+   167                                             # Goes on until user stops
+   168   3925.1 MiB      0.0 MiB           3       while not(main_event.is_set()):
+   169   3779.6 MiB      0.0 MiB           2           print("Starting new round of handle_camera")
+   170   3779.6 MiB      0.0 MiB           2           print(not(main_event.is_set()))
+   171                                         
+   172   3779.6 MiB      0.0 MiB           2           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   173   3779.6 MiB      0.0 MiB           2           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   174   3779.6 MiB      0.0 MiB           2           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   175                                         
+   176   3779.6 MiB      0.0 MiB           2           disp.create_savefile(stimName)
+   177                                         
+   178   3779.6 MiB      0.0 MiB           2           cam_recording_ready.clear()
+   179                                         
+   180                                         
+   181   3779.6 MiB      0.0 MiB           2           cam_process = multiprocessing.Process(  target=cam_function, 
+   182   3779.6 MiB      0.0 MiB           2                                                   args=(  img_show_queue, 
+   183   3779.6 MiB      0.0 MiB           2                                                           cam_recording_ready, 
+   184   3779.6 MiB      0.0 MiB           2                                                           vidName, 
+   185   3779.6 MiB      0.0 MiB           2                                                           csvName, 
+   186   3779.6 MiB      0.0 MiB           2                                                           spec_dict), 
+   187   3779.6 MiB      0.0 MiB           2                                                   daemon=False)
+   188   3779.6 MiB      0.0 MiB           2           cam_process.start()
+   189                                          
+   190   3779.6 MiB      0.0 MiB           2           vprint("handle_camera: waiting for cam_recording_ready")
+   191   3779.6 MiB      0.0 MiB           2           cam_recording_ready.wait()
+   192   3779.6 MiB      0.0 MiB           2           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   193   3779.6 MiB      0.1 MiB           2           cam_handler_ready.set()
+   194                                         
+   195   3779.6 MiB     10.7 MiB           2           disp.start_video_stream()
+   196   3779.8 MiB      8.4 MiB           2           disp.start_projector()
+   197   3924.9 MiB   3371.2 MiB           2           disp.init_online_processing()
+   198   3924.9 MiB      0.0 MiB           2           print("Started projector")
+   199                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   200   3924.9 MiB      0.0 MiB           2           while True:
+   201                                         
+   202   3933.7 MiB      1.4 MiB        3583               disp.update_stream()
+   203   3933.7 MiB     18.0 MiB        3583               disp.update_projector()
+   204                                         
+   205                                                     # check for command in projector queue
+   206                                                     # if command
+   207                                                     # issue it to projector object
+   208                                                     # display image from projector object on screen
+   209                                                     # try to pop img from queue from cam_function
+   210                                                     # display most recent image
+   211                                                     
+   212   3933.7 MiB      0.0 MiB        3583               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   213   3933.7 MiB      0.0 MiB           2                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   214   3933.7 MiB      0.0 MiB           2                   cam_recording_ready.clear() # Signal camera to stop recording
+   215   3933.7 MiB      0.0 MiB           2                   vprint("Closing video stream")
+   216   3932.9 MiB     -1.6 MiB           2                   disp.end_stream()
+   217   3925.0 MiB    -21.7 MiB           2                   disp.stop_projector()
+   218   3925.0 MiB      0.0 MiB           2                   vprint("Video stream closed!")
+   219   3925.0 MiB      0.0 MiB           2                   vprint("handle_camera: Joining cam_process")
+   220   3925.1 MiB      0.2 MiB           2                   cam_process.join() # Wrap up recording process
+   221   3925.1 MiB      0.0 MiB           2                   vprint("handle_camera: Cam pool joined!")
+   222                                                         
+   223   3925.1 MiB      0.0 MiB           2                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   224   3925.1 MiB      0.0 MiB           2                   vprint("handle_cmamera: Waiting for user...")
+   225   3925.1 MiB      0.0 MiB           2                   user_ready.wait()             # Wait for user to restart
+   226   3925.1 MiB      0.0 MiB           2                   vprint("User ready!")
+   227   3925.1 MiB      0.0 MiB           2                   break    
+   228                                             
+   229   3925.1 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.2 MiB    522.2 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.2 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.2 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.2 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.2 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.2 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.2 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.2 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.6 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.6 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.6 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.6 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.6 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.6 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174    557.4 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.6 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.6 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.6 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.6 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.6 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.6 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.6 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.6 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.6 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.6 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.6 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.6 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.6 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.6 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.6 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.6 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.6 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.6 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.6 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.6 MiB     10.9 MiB           1           disp.start_video_stream()
+   202    557.9 MiB      8.4 MiB           1           disp.start_projector()
+   203                                         
+   204    557.9 MiB      0.0 MiB           1           if online:
+   205                                                     disp.init_online_processing()
+   206                                         
+   207    557.9 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209    557.9 MiB      0.0 MiB           1           while True:
+   210                                         
+   211    571.7 MiB      1.0 MiB        1327               disp.update_stream()
+   212    571.7 MiB     12.8 MiB        1327               disp.update_projector()
+   213                                                     
+   214    571.7 MiB      0.0 MiB        1327               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215    571.7 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216    571.7 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217    571.7 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218    570.8 MiB     -0.8 MiB           1                   disp.end_stream()
+   219    557.1 MiB    -13.7 MiB           1                   disp.stop_projector()
+   220    557.1 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221    557.1 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222    557.4 MiB      0.3 MiB           1                   cam_process.join() # Wrap up recording process
+   223    557.4 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225    557.4 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226    557.4 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227    557.4 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228    557.4 MiB      0.0 MiB           1                   vprint("User ready!")
+   229    557.4 MiB      0.0 MiB           1                   break    
+   230                                             
+   231    557.4 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.2 MiB    522.2 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.2 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.2 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.2 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.2 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.2 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.2 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.2 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.7 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.7 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.7 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.7 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.7 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.7 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3892.9 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.7 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.7 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.7 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.7 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.7 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.7 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.7 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.7 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.7 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.7 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.7 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.7 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.7 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.7 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.7 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.7 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.7 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.7 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.7 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.8 MiB     11.1 MiB           1           disp.start_video_stream()
+   202    558.1 MiB      8.3 MiB           1           disp.start_projector()
+   203                                         
+   204    558.1 MiB      0.0 MiB           1           if online:
+   205   3895.9 MiB   3337.7 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3895.9 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3895.9 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3907.1 MiB     11.1 MiB         470               disp.update_stream()
+   212   3907.1 MiB      0.1 MiB         470               disp.update_projector()
+   213                                                     
+   214   3907.1 MiB      0.0 MiB         470               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3907.1 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3907.1 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3907.1 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3906.5 MiB     -0.6 MiB           1                   disp.end_stream()
+   219   3892.7 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3892.7 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3892.7 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3892.9 MiB      0.2 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3892.9 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3892.9 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3892.9 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3892.9 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3892.9 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3892.9 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3892.9 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.1 MiB    522.1 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.1 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.1 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.1 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.1 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.1 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.1 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.1 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.7 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.7 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.7 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.7 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.7 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.7 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3788.7 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.7 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.7 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.7 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.7 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.7 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.7 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.7 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.7 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.7 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.7 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.7 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.7 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.7 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.7 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.7 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.7 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.7 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.7 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.7 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.6 MiB     10.9 MiB           1           disp.start_video_stream()
+   202    557.8 MiB      8.2 MiB           1           disp.start_projector()
+   203                                         
+   204    557.8 MiB      0.0 MiB           1           if online:
+   205   3792.2 MiB   3234.4 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3792.2 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3792.2 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3802.5 MiB     10.2 MiB        3557               disp.update_stream()
+   212   3802.5 MiB      0.1 MiB        3557               disp.update_projector()
+   213                                                     
+   214   3802.5 MiB      0.0 MiB        3557               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3802.5 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3802.5 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3802.5 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3802.4 MiB     -0.0 MiB           1                   disp.end_stream()
+   219   3788.7 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3788.7 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3788.7 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3788.7 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3788.7 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3788.7 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3788.7 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3788.7 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3788.7 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3788.7 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3788.7 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.3 MiB    522.3 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.3 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.3 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.3 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.3 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.3 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.3 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.3 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.7 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.7 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.7 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.7 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.7 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.7 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3781.2 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.7 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.7 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.7 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.7 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.7 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.7 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.7 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.7 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.7 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.7 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.7 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.7 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.7 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.7 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.7 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.7 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.7 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.7 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.7 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.5 MiB     10.8 MiB           1           disp.start_video_stream()
+   202    557.9 MiB      8.4 MiB           1           disp.start_projector()
+   203                                         
+   204    557.9 MiB      0.0 MiB           1           if online:
+   205   3784.4 MiB   3226.5 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3784.4 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3784.4 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3795.5 MiB     11.0 MiB         837               disp.update_stream()
+   212   3795.5 MiB      0.1 MiB         837               disp.update_projector()
+   213                                                     
+   214   3795.5 MiB      0.0 MiB         837               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3795.5 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3795.5 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3795.5 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3794.7 MiB     -0.8 MiB           1                   disp.end_stream()
+   219   3781.0 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3781.0 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3781.0 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3781.2 MiB      0.2 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3781.2 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3781.2 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3781.2 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3781.2 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3781.2 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3781.2 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3781.2 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.5 MiB    522.5 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.5 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.5 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.5 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.5 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.5 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.5 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.5 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    539.0 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    539.0 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    539.0 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    539.0 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    539.0 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    539.0 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3791.2 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    539.0 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    539.0 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    539.0 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    539.0 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    539.0 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    539.0 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    539.0 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    539.0 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    539.0 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    539.0 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    539.0 MiB      0.0 MiB           1                                                           vidName, 
+   191    539.0 MiB      0.0 MiB           1                                                           csvName, 
+   192    539.0 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    539.0 MiB      0.0 MiB           1                                                   daemon=False)
+   194    539.0 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    539.0 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    539.0 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    539.0 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    539.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.8 MiB     10.8 MiB           1           disp.start_video_stream()
+   202    558.0 MiB      8.2 MiB           1           disp.start_projector()
+   203                                         
+   204    558.0 MiB      0.0 MiB           1           if online:
+   205   3793.7 MiB   3235.6 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3793.7 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3793.7 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3805.8 MiB     12.0 MiB        1336               disp.update_stream()
+   212   3805.8 MiB      0.1 MiB        1336               disp.update_projector()
+   213                                                     
+   214   3805.8 MiB      0.0 MiB        1336               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3805.8 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3805.8 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3805.8 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3804.9 MiB     -0.8 MiB           1                   disp.end_stream()
+   219   3791.2 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3791.2 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3791.2 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3791.2 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3791.2 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3791.2 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3791.2 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3791.2 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3791.2 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3791.2 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3791.2 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    521.8 MiB    521.8 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    521.8 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    521.8 MiB      0.0 MiB           1       faulthandler.enable()
+   152    521.8 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    521.8 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    521.8 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    521.8 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    521.8 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.3 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.3 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.3 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.3 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.3 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.3 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3777.6 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.3 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.3 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.3 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.3 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.3 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.3 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.3 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.3 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.3 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.3 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.3 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.3 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.3 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.3 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.3 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.3 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.3 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.3 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.3 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.2 MiB     10.9 MiB           1           disp.start_video_stream()
+   202    557.4 MiB      8.2 MiB           1           disp.start_projector()
+   203                                         
+   204    557.4 MiB      0.0 MiB           1           if online:
+   205   3781.7 MiB   3224.2 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3781.7 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3781.7 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3791.9 MiB     10.1 MiB        3949               disp.update_stream()
+   212   3791.9 MiB      0.1 MiB        3949               disp.update_projector()
+   213                                                     
+   214   3791.9 MiB      0.0 MiB        3949               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3791.9 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3791.9 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3791.9 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3791.3 MiB     -0.6 MiB           1                   disp.end_stream()
+   219   3777.6 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3777.6 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3777.6 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3777.6 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3777.6 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3777.6 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3777.6 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3777.6 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3777.6 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3777.6 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3777.6 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    521.7 MiB    521.7 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    521.7 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    521.7 MiB      0.0 MiB           1       faulthandler.enable()
+   152    521.7 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    521.7 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    521.7 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    521.7 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    521.7 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.1 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.1 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.1 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.1 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.1 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.1 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3787.4 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.1 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.1 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.1 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.1 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.1 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.1 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.1 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.1 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.1 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.1 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.1 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.1 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.1 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.1 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.1 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.1 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.1 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.1 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.1 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    548.6 MiB     10.5 MiB           1           disp.start_video_stream()
+   202    557.0 MiB      8.4 MiB           1           disp.start_projector()
+   203                                         
+   204    557.0 MiB      0.0 MiB           1           if online:
+   205   3788.7 MiB   3231.7 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3788.7 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3788.7 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3800.4 MiB     10.9 MiB       17809               disp.update_stream()
+   212   3800.4 MiB      0.8 MiB       17809               disp.update_projector()
+   213                                                     
+   214   3800.4 MiB      0.0 MiB       17809               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3800.4 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3800.4 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3800.4 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3800.6 MiB      0.1 MiB           1                   disp.end_stream()
+   219   3786.8 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3786.8 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3786.8 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3787.4 MiB      0.6 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3787.4 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3787.4 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3787.4 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3787.4 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3787.4 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3787.4 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3787.4 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.1 MiB    522.1 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.1 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.1 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.1 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.1 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.1 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.1 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.1 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    538.6 MiB     16.5 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    538.6 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    538.6 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    538.6 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    538.6 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    538.6 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3859.2 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    538.6 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    538.6 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    538.6 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    538.6 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    538.6 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    538.6 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    538.6 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    538.6 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    538.6 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    538.6 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    538.6 MiB      0.0 MiB           1                                                           vidName, 
+   191    538.6 MiB      0.0 MiB           1                                                           csvName, 
+   192    538.6 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    538.6 MiB      0.0 MiB           1                                                   daemon=False)
+   194    538.6 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    538.6 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    538.6 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    538.6 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    538.6 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    549.6 MiB     11.0 MiB           1           disp.start_video_stream()
+   202    558.0 MiB      8.5 MiB           1           disp.start_projector()
+   203                                         
+   204    558.0 MiB      0.0 MiB           1           if online:
+   205   3861.3 MiB   3303.2 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3861.3 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3861.3 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3873.8 MiB      2.6 MiB        3296               disp.update_stream()
+   212   3873.8 MiB      9.9 MiB        3296               disp.update_projector()
+   213                                                     
+   214   3873.8 MiB      0.0 MiB        3296               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3873.8 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3873.8 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3873.8 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3873.0 MiB     -0.8 MiB           1                   disp.end_stream()
+   219   3859.2 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3859.2 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3859.2 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3859.2 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3859.2 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3859.2 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3859.2 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3859.2 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3859.2 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3859.2 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3859.2 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    521.5 MiB    521.5 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    521.5 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    521.5 MiB      0.0 MiB           1       faulthandler.enable()
+   152    521.5 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    521.5 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    521.5 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    521.5 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    521.5 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162                                             
+   163                                         
+   164                                             # Handles projected images
+   165    537.9 MiB     16.4 MiB           1       proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   166    537.9 MiB      0.0 MiB           1       print("Setting up DisplayHandler")
+   167                                         
+   168    537.9 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   169    537.9 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   170    537.9 MiB      0.0 MiB           1       disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   171    537.9 MiB      0.0 MiB           1       print("DisplayHandler setup complete")
+   172                                         
+   173                                             # Goes on until user stops
+   174   3811.3 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   175    537.9 MiB      0.0 MiB           1           print("Starting new round of handle_camera")
+   176    537.9 MiB      0.0 MiB           1           print(not(main_event.is_set()))
+   177                                         
+   178    537.9 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   179    537.9 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   180    537.9 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   181                                         
+   182    537.9 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   183                                         
+   184    537.9 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   185                                         
+   186                                         
+   187    537.9 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   188    537.9 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   189    537.9 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   190    537.9 MiB      0.0 MiB           1                                                           vidName, 
+   191    537.9 MiB      0.0 MiB           1                                                           csvName, 
+   192    537.9 MiB      0.0 MiB           1                                                           spec_dict), 
+   193    537.9 MiB      0.0 MiB           1                                                   daemon=False)
+   194    537.9 MiB      0.0 MiB           1           cam_process.start()
+   195                                          
+   196    537.9 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   197    537.9 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   198    537.9 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   199    537.9 MiB      0.0 MiB           1           cam_handler_ready.set()
+   200                                         
+   201    548.4 MiB     10.5 MiB           1           disp.start_video_stream()
+   202    556.7 MiB      8.3 MiB           1           disp.start_projector()
+   203                                         
+   204    556.7 MiB      0.0 MiB           1           if online:
+   205   3813.4 MiB   3256.7 MiB           1               disp.init_online_processing()
+   206                                         
+   207   3813.4 MiB      0.0 MiB           1           print("Started projector")
+   208                                                 # Waits for main or restart events to be set. Sleeps for 1 sec to allow for other threads to get more attention.
+   209   3813.4 MiB      0.0 MiB           1           while True:
+   210                                         
+   211   3825.9 MiB     10.9 MiB        8481               disp.update_stream()
+   212   3825.9 MiB      1.6 MiB        8481               disp.update_projector()
+   213                                                     
+   214   3825.9 MiB      0.0 MiB        8481               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   215   3825.9 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   216   3825.9 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   217   3825.9 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   218   3825.1 MiB     -0.8 MiB           1                   disp.end_stream()
+   219   3811.3 MiB    -13.8 MiB           1                   disp.stop_projector()
+   220   3811.3 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   221   3811.3 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   222   3811.3 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   223   3811.3 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   224                                                         
+   225   3811.3 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   226   3811.3 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   227   3811.3 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   228   3811.3 MiB      0.0 MiB           1                   vprint("User ready!")
+   229   3811.3 MiB      0.0 MiB           1                   break    
+   230                                             
+   231   3811.3 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.4 MiB    522.4 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.4 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.4 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.4 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.4 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.4 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.4 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.4 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162    522.4 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   163    522.4 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   164                                             
+   165                                             # Goes on until user stops
+   166   3807.1 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   167                                         
+   168                                                 # Handles projected images
+   169    538.9 MiB     16.5 MiB           1           proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   170    538.9 MiB      0.0 MiB           1           print("Setting up DisplayHandler")
+   171                                                 
+   172    538.9 MiB      0.0 MiB           1           disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   173    538.9 MiB      0.0 MiB           1           print("DisplayHandler setup complete")
+   174                                         
+   175    538.9 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   176    538.9 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   177    538.9 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   178                                         
+   179    538.9 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   180                                         
+   181    538.9 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   182                                         
+   183                                         
+   184    538.9 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   185    538.9 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   186    538.9 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   187    538.9 MiB      0.0 MiB           1                                                           vidName, 
+   188    538.9 MiB      0.0 MiB           1                                                           csvName, 
+   189    538.9 MiB      0.0 MiB           1                                                           spec_dict), 
+   190    538.9 MiB      0.0 MiB           1                                                   daemon=False)
+   191    538.9 MiB      0.0 MiB           1           cam_process.start()
+   192                                          
+   193    538.9 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   194    538.9 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   195    538.9 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   196    539.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   197                                         
+   198    550.0 MiB     11.1 MiB           1           disp.start_video_stream()
+   199    558.3 MiB      8.2 MiB           1           disp.start_projector()
+   200                                         
+   201    558.3 MiB      0.0 MiB           1           if online:
+   202   3810.8 MiB   3252.6 MiB           1               disp.init_online_processing()
+   203                                         
+   204   3810.8 MiB      0.0 MiB           1           print("Started projector")
+   205                                                 # Waits for main or restart events to be set
+   206   3810.8 MiB      0.0 MiB           1           while True:
+   207                                         
+   208   3821.5 MiB     10.2 MiB        2547               disp.update_stream()
+   209   3821.5 MiB      0.5 MiB        2547               disp.update_projector()
+   210                                                     
+   211   3821.5 MiB      0.0 MiB        2547               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   212   3821.5 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   213   3821.5 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   214   3821.5 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   215   3820.7 MiB     -0.8 MiB           1                   disp.end_stream()
+   216   3806.9 MiB    -13.8 MiB           1                   disp.stop_projector()
+   217   3806.9 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   218   3806.9 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   219   3807.1 MiB      0.2 MiB           1                   cam_process.join() # Wrap up recording process
+   220   3807.1 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   221                                                         
+   222   3807.1 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   223   3807.1 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   224   3807.1 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   225   3807.1 MiB      0.0 MiB           1                   vprint("User ready!")
+   226   3807.1 MiB      0.0 MiB           1                   break    
+   227                                             
+   228   3807.1 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.5 MiB    522.5 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.5 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.5 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.5 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.5 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.5 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.5 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.5 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162    522.5 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   163    522.5 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   164                                             
+   165                                             # Goes on until user stops
+   166   3815.3 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   167                                         
+   168                                                 # Handles projected images
+   169    539.0 MiB     16.5 MiB           1           proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   170    539.0 MiB      0.0 MiB           1           print("Setting up DisplayHandler")
+   171                                                 
+   172    539.0 MiB      0.0 MiB           1           disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   173    539.0 MiB      0.0 MiB           1           print("DisplayHandler setup complete")
+   174                                         
+   175    539.0 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   176    539.0 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   177    539.0 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   178                                         
+   179    539.0 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   180                                         
+   181    539.0 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   182                                         
+   183                                         
+   184    539.0 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   185    539.0 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   186    539.0 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   187    539.0 MiB      0.0 MiB           1                                                           vidName, 
+   188    539.0 MiB      0.0 MiB           1                                                           csvName, 
+   189    539.0 MiB      0.0 MiB           1                                                           spec_dict), 
+   190    539.0 MiB      0.0 MiB           1                                                   daemon=False)
+   191    539.0 MiB      0.0 MiB           1           cam_process.start()
+   192                                          
+   193    539.0 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   194    539.0 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   195    539.0 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   196    539.0 MiB      0.0 MiB           1           cam_handler_ready.set()
+   197                                         
+   198    550.2 MiB     11.1 MiB           1           disp.start_video_stream()
+   199    558.4 MiB      8.2 MiB           1           disp.start_projector()
+   200                                         
+   201    558.4 MiB      0.0 MiB           1           if online:
+   202   3818.6 MiB   3260.2 MiB           1               disp.init_online_processing()
+   203                                         
+   204   3818.6 MiB      0.0 MiB           1           print("Started projector")
+   205                                                 # Waits for main or restart events to be set
+   206   3818.6 MiB      0.0 MiB           1           while True:
+   207                                         
+   208   3830.0 MiB      1.3 MiB        3577               disp.update_stream()
+   209   3830.0 MiB     10.1 MiB        3577               disp.update_projector()
+   210                                                     
+   211   3830.0 MiB      0.0 MiB        3577               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   212   3830.0 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   213   3830.0 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   214   3830.0 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   215   3829.1 MiB     -0.8 MiB           1                   disp.end_stream()
+   216   3815.3 MiB    -13.8 MiB           1                   disp.stop_projector()
+   217   3815.3 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   218   3815.3 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   219   3815.3 MiB      0.0 MiB           1                   cam_process.join() # Wrap up recording process
+   220   3815.3 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   221                                                         
+   222   3815.3 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   223   3815.3 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   224   3815.3 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   225   3815.3 MiB      0.0 MiB           1                   vprint("User ready!")
+   226   3815.3 MiB      0.0 MiB           1                   break    
+   227                                             
+   228   3815.3 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+
+Filename: /home/titan/KI2020/Code/src/threadFuncs.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+   145    522.3 MiB    522.3 MiB           1   @profile(stream=open(f'memory_profiler_handle_camera.log','a+'))
+   146                                         def handle_camera(main_event, cam_handler_ready, user_ready, proj_queue, dirTracker, optHandler):
+   147                                             """
+   148                                             Starts, restarts and stops the camera Process when main or restart events are set.
+   149                                             """
+   150    522.3 MiB      0.0 MiB           1       dirTracker.get_current_savepath
+   151    522.3 MiB      0.0 MiB           1       faulthandler.enable()
+   152    522.3 MiB      0.0 MiB           1       vprint = optHandler.get_vprint()
+   153                                         
+   154    522.3 MiB      0.0 MiB           1       cam_function = record_camera if optHandler.get_dict_value('useBlackFly') else record_fake_camera
+   155                                         
+   156    522.3 MiB      0.0 MiB           1       cam_recording_ready = multiprocessing.Event()
+   157                                         
+   158    522.3 MiB      0.0 MiB           1       spec_dict = optHandler.get_camera_specs()
+   159                                         
+   160    522.3 MiB      0.0 MiB           1       img_show_queue = multiprocessing.Queue(1)
+   161                                             
+   162    522.3 MiB      0.0 MiB           1       online = optHandler.get_dict_value('online')
+   163    522.3 MiB      0.0 MiB           1       print(F"Online tracking: {online}")
+   164                                             
+   165                                             # Goes on until user stops
+   166   3796.2 MiB      0.0 MiB           2       while not(main_event.is_set()):
+   167                                         
+   168                                                 # Handles projected images
+   169    538.7 MiB     16.4 MiB           1           proj = Projector(bgr_col=1,use_fullscreen=True,push_window=4000,rotate=False)
+   170    538.7 MiB      0.0 MiB           1           print("Setting up DisplayHandler")
+   171                                                 
+   172    538.7 MiB      0.0 MiB           1           disp = DisplayHandler(proj, img_show_queue, proj_queue,online)
+   173    538.7 MiB      0.0 MiB           1           print("DisplayHandler setup complete")
+   174                                         
+   175    538.7 MiB      0.0 MiB           1           vidName = dirTracker.get_current_savepath(append_str=spec_dict['rec_string'],save_format=spec_dict['video_format'])
+   176    538.7 MiB      0.0 MiB           1           csvName = dirTracker.get_current_savepath(append_str=spec_dict['frame_ID_string'],save_format=spec_dict['frame_ID_format'])
+   177    538.7 MiB      0.0 MiB           1           stimName = dirTracker.get_current_savepath(append_str='stimuli',save_format='csv')
+   178                                         
+   179    538.7 MiB      0.0 MiB           1           disp.create_savefile(stimName)
+   180                                         
+   181    538.7 MiB      0.0 MiB           1           cam_recording_ready.clear()
+   182                                         
+   183                                         
+   184    538.7 MiB      0.0 MiB           1           cam_process = multiprocessing.Process(  target=cam_function, 
+   185    538.7 MiB      0.0 MiB           1                                                   args=(  img_show_queue, 
+   186    538.7 MiB      0.0 MiB           1                                                           cam_recording_ready, 
+   187    538.7 MiB      0.0 MiB           1                                                           vidName, 
+   188    538.7 MiB      0.0 MiB           1                                                           csvName, 
+   189    538.7 MiB      0.0 MiB           1                                                           spec_dict), 
+   190    538.7 MiB      0.0 MiB           1                                                   daemon=False)
+   191    538.7 MiB      0.0 MiB           1           cam_process.start()
+   192                                          
+   193    538.7 MiB      0.0 MiB           1           vprint("handle_camera: waiting for cam_recording_ready")
+   194    538.7 MiB      0.0 MiB           1           cam_recording_ready.wait()
+   195    538.7 MiB      0.0 MiB           1           vprint("handle_camera: cam ready! setting cam_handler_ready")
+   196    538.7 MiB      0.0 MiB           1           cam_handler_ready.set()
+   197                                         
+   198    549.4 MiB     10.7 MiB           1           disp.start_video_stream()
+   199    557.8 MiB      8.4 MiB           1           disp.start_projector()
+   200                                         
+   201    557.8 MiB      0.0 MiB           1           if online:
+   202   3799.4 MiB   3241.5 MiB           1               disp.init_online_processing()
+   203                                         
+   204   3799.4 MiB      0.0 MiB           1           print("Started projector")
+   205                                                 # Waits for main or restart events to be set
+   206   3799.4 MiB      0.0 MiB           1           while True:
+   207                                         
+   208   3810.7 MiB     10.4 MiB        7238               disp.update_stream()
+   209   3810.7 MiB      0.9 MiB        7238               disp.update_projector()
+   210                                                     
+   211   3810.7 MiB      0.0 MiB        7238               if main_event.is_set() or not(cam_handler_ready.is_set()) :
+   212   3810.7 MiB      0.0 MiB           1                   vprint("handle_camera: main_event or cam_handler_ready is cleared!")
+   213   3810.7 MiB      0.0 MiB           1                   cam_recording_ready.clear() # Signal camera to stop recording
+   214   3810.7 MiB      0.0 MiB           1                   vprint("Closing video stream")
+   215   3809.9 MiB     -0.8 MiB           1                   disp.end_stream()
+   216   3796.1 MiB    -13.8 MiB           1                   disp.stop_projector()
+   217   3796.1 MiB      0.0 MiB           1                   vprint("Video stream closed!")
+   218   3796.1 MiB      0.0 MiB           1                   vprint("handle_camera: Joining cam_process")
+   219   3796.2 MiB      0.1 MiB           1                   cam_process.join() # Wrap up recording process
+   220   3796.2 MiB      0.0 MiB           1                   vprint("handle_camera: Cam pool joined!")
+   221                                                         
+   222   3796.2 MiB      0.0 MiB           1                   vprint(F"handle_camera: user ready? {user_ready.is_set()}")
+   223   3796.2 MiB      0.0 MiB           1                   vprint("handle_cmamera: Waiting for user...")
+   224   3796.2 MiB      0.0 MiB           1                   user_ready.wait()             # Wait for user to restart
+   225   3796.2 MiB      0.0 MiB           1                   vprint("User ready!")
+   226   3796.2 MiB      0.0 MiB           1                   break    
+   227                                             
+   228   3796.2 MiB      0.0 MiB           1       print("Exiting cam_handler")
+
+

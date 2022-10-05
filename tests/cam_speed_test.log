@@ -1,0 +1,520 @@
+2020-08-18 18:17:53,125 [MainThread  ] [DEBUG]  Given frequency: 100
+2020-08-18 18:17:53,128 [MainThread  ] [DEBUG]  Framerate set to 99.9971200829416
+2020-08-18 18:17:53,141 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:17:53,142 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:17:53,186 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:17:57,517 [MainThread  ] [DEBUG]  Got trigger after 4.330204010009766
+2020-08-18 18:18:57,510 [MainThread  ] [DEBUG]  
+Duration: 59.98854994773865
+2020-08-18 18:18:57,520 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 5999 - 0 = 5999
+2020-08-18 18:18:57,521 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 5999 - 0 = 5999
+2020-08-18 18:18:57,522 [MainThread  ] [DEBUG]  Missed 0 (0.0%)
+2020-08-18 18:18:57,522 [MainThread  ] [DEBUG]  Average iter time: 0.0015300469290621228
+2020-08-18 18:18:57,522 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 5998.854994773865
+2020-08-18 18:18:57,523 [MainThread  ] [DEBUG]  Got 5999 images from BlackFly
+2020-08-18 18:18:57,523 [MainThread  ] [DEBUG]  Resulting framerate: 100.00241721505623
+2020-08-18 18:18:57,524 [MainThread  ] [DEBUG]  No. of empty frames: {e}
+2020-08-18 18:18:57,537 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:19:02,542 [MainThread  ] [DEBUG]  Joined process
+2020-08-18 18:20:06,678 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 18:20:06,679 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+
+
+
+
+
+
+2020-08-18 18:20:06,679 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 18:20:06,682 [MainThread  ] [DEBUG]  Framerate set to 199.92898522444827
+2020-08-18 18:20:06,695 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:20:06,710 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:20:06,770 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:20:11,114 [MainThread  ] [DEBUG]  Got trigger after 4.342915296554565
+2020-08-18 18:21:11,104 [MainThread  ] [DEBUG]  
+Duration: 59.98555135726929
+2020-08-18 18:21:11,114 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 5999 - 0 = 5999
+2020-08-18 18:21:11,115 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 5999 - 0 = 5999
+2020-08-18 18:21:11,115 [MainThread  ] [DEBUG]  Missed 0 (0.0%)
+2020-08-18 18:21:11,116 [MainThread  ] [DEBUG]  Average iter time: 0.0016149459228211632
+2020-08-18 18:21:11,117 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 11997.110271453857
+2020-08-18 18:21:11,118 [MainThread  ] [DEBUG]  Got 5999 images from BlackFly
+2020-08-18 18:21:11,119 [MainThread  ] [DEBUG]  Resulting framerate: 100.00741619044929
+2020-08-18 18:21:11,120 [MainThread  ] [DEBUG]  No. of empty frames: {e}
+2020-08-18 18:21:11,131 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:21:16,136 [MainThread  ] [DEBUG]  Joined process
+2020-08-18 18:24:26,444 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 18:24:26,444 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 18:24:26,444 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 18:24:26,448 [MainThread  ] [DEBUG]  Framerate set to 199.92898522444827
+2020-08-18 18:24:26,461 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:24:26,461 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:24:26,505 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:24:30,845 [MainThread  ] [DEBUG]  Got trigger after 4.327898979187012
+2020-08-18 18:33:10,492 [MainThread  ] [DEBUG]  Initial trigger counter: 13955
+2020-08-18 18:33:10,492 [MainThread  ] [DEBUG]  Initial exposure counter: 9639
+2020-08-18 18:33:10,492 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 18:33:10,496 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 18:33:10,509 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:33:10,509 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:33:10,563 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:33:14,880 [MainThread  ] [DEBUG]  Got trigger after 4.316548585891724
+2020-08-18 18:38:14,877 [MainThread  ] [DEBUG]  
+Duration: 299.99020504951477
+2020-08-18 18:38:14,887 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 23422 - 13955 = 9467
+2020-08-18 18:38:14,888 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 19071 - 9639 = 9432
+2020-08-18 18:38:14,888 [MainThread  ] [DEBUG]  Missed 35 (0.37%)
+2020-08-18 18:38:14,889 [MainThread  ] [DEBUG]  Average iter time: 0.0019166743658764265
+2020-08-18 18:38:14,889 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 74997.55126237869
+2020-08-18 18:38:14,890 [MainThread  ] [DEBUG]  Got 74952 images from BlackFly
+2020-08-18 18:38:14,891 [MainThread  ] [DEBUG]  Resulting framerate: 249.84815750110516
+2020-08-18 18:38:14,892 [MainThread  ] [DEBUG]  No. of empty frames: {e}
+2020-08-18 18:38:14,905 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:38:19,909 [MainThread  ] [DEBUG]  Joined process
+2020-08-18 18:38:19,909 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 18:45:48,667 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 18:45:48,667 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 18:45:48,668 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 18:45:48,671 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 18:45:48,685 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:45:48,685 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:45:48,717 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:45:53,034 [MainThread  ] [DEBUG]  Got trigger after 4.31593656539917
+2020-08-18 18:46:03,030 [MainThread  ] [DEBUG]  
+Duration: 9.988280534744263
+2020-08-18 18:46:03,040 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 2500 - 0 = 2500
+2020-08-18 18:46:03,041 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 2499 - 0 = 2499
+2020-08-18 18:46:03,041 [MainThread  ] [DEBUG]  Missed 1 (0.04%)
+2020-08-18 18:46:03,042 [MainThread  ] [DEBUG]  Average iter time: 0.001903617407041026
+2020-08-18 18:46:03,042 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 2497.0
+2020-08-18 18:46:03,043 [MainThread  ] [DEBUG]  Got 2498 images from BlackFly
+2020-08-18 18:46:03,045 [MainThread  ] [DEBUG]  Resulting framerate: 250.09309573461616
+2020-08-18 18:46:03,045 [MainThread  ] [DEBUG]  No. of empty frames: 2749
+2020-08-18 18:46:03,057 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:46:08,062 [MainThread  ] [DEBUG]  Joined process
+2020-08-18 18:46:08,063 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 18:54:22,116 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 18:54:22,116 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 18:54:22,116 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 18:54:22,120 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 18:54:22,133 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:54:22,145 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:54:22,179 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:54:26,547 [MainThread  ] [DEBUG]  Got trigger after 4.362703323364258
+2020-08-18 18:54:46,544 [MainThread  ] [DEBUG]  
+Duration: 19.98953413963318
+2020-08-18 18:54:46,554 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4999 - 0 = 4999
+2020-08-18 18:54:46,555 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 4997 - 0 = 4997
+2020-08-18 18:54:46,556 [MainThread  ] [DEBUG]  Missed 2 (0.04%)
+2020-08-18 18:54:46,557 [MainThread  ] [DEBUG]  Average iter time: 0.0019736901796636236
+2020-08-18 18:54:46,557 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4997.0
+2020-08-18 18:54:46,558 [MainThread  ] [DEBUG]  Got 4996 images from BlackFly
+2020-08-18 18:54:46,561 [MainThread  ] [DEBUG]  Resulting framerate: 249.9307870359244
+2020-08-18 18:54:46,561 [MainThread  ] [DEBUG]  No. of empty frames: 5132
+2020-08-18 18:54:46,574 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:54:51,578 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 18:57:54,941 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 18:57:54,941 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 18:57:54,941 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 18:57:54,945 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 18:57:54,955 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 18:57:54,956 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 18:57:54,989 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 18:57:59,340 [MainThread  ] [DEBUG]  Got trigger after 4.350363731384277
+2020-08-18 18:58:59,337 [MainThread  ] [DEBUG]  
+Duration: 59.98954749107361
+2020-08-18 18:58:59,345 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 14998 - 0 = 14998
+2020-08-18 18:58:59,346 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 14991 - 0 = 14991
+2020-08-18 18:58:59,347 [MainThread  ] [DEBUG]  Missed 7 (0.047%)
+2020-08-18 18:58:59,347 [MainThread  ] [DEBUG]  Average iter time: 0.0019854227202076324
+2020-08-18 18:58:59,348 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 14997.0
+2020-08-18 18:58:59,348 [MainThread  ] [DEBUG]  Got 14990 images from BlackFly
+2020-08-18 18:58:59,363 [MainThread  ] [DEBUG]  Resulting framerate: 249.87686400252474
+2020-08-18 18:58:59,364 [MainThread  ] [DEBUG]  No. of empty frames: 15225
+2020-08-18 18:58:59,398 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 18:59:04,371 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 19:01:49,661 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 19:01:49,662 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 19:01:49,662 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 19:01:49,665 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 19:01:49,679 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 19:01:49,680 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 19:01:49,730 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 19:01:54,073 [MainThread  ] [DEBUG]  Got trigger after 4.340389251708984
+2020-08-18 19:02:14,068 [MainThread  ] [DEBUG]  
+Duration: 19.988536834716797
+2020-08-18 19:02:14,079 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4999 - 0 = 4999
+2020-08-18 19:02:14,079 [MainThread  ] [DEBUG]  Got 4996 images from BlackFly (tot exposure count)
+2020-08-18 19:02:14,080 [MainThread  ] [DEBUG]  Missed 4 (0.08%)
+2020-08-18 19:02:14,080 [MainThread  ] [DEBUG]  Average iter time: 0.0003939016028124307
+2020-08-18 19:02:14,081 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4997.0
+2020-08-18 19:02:14,081 [MainThread  ] [DEBUG]  Resulting framerate: 249.9432570433455
+2020-08-18 19:02:14,081 [MainThread  ] [DEBUG]  No. of empty frames: 45749
+2020-08-18 19:02:14,092 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 19:02:19,107 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 19:03:03,518 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 19:03:03,519 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 19:03:03,519 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 19:03:03,522 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 19:03:03,536 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 19:03:03,548 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 19:03:03,629 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 19:03:07,985 [MainThread  ] [DEBUG]  Got trigger after 4.354352235794067
+2020-08-18 19:03:27,981 [MainThread  ] [DEBUG]  
+Duration: 19.987540245056152
+2020-08-18 19:03:27,991 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 9999 - 0 = 9999
+2020-08-18 19:03:27,992 [MainThread  ] [DEBUG]  Got 9974 images from BlackFly (tot exposure count)
+2020-08-18 19:03:27,992 [MainThread  ] [DEBUG]  Missed 26 (0.26%)
+2020-08-18 19:03:27,992 [MainThread  ] [DEBUG]  Average iter time: 0.0004478799884611592
+2020-08-18 19:03:27,993 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 9993.0
+2020-08-18 19:03:27,993 [MainThread  ] [DEBUG]  Resulting framerate: 499.01087766249947
+2020-08-18 19:03:27,993 [MainThread  ] [DEBUG]  No. of empty frames: 34653
+2020-08-18 19:03:28,007 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 19:03:33,017 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 19:03:44,068 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 19:03:44,069 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 19:03:44,069 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 19:03:44,072 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 19:03:44,086 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 19:03:44,094 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 19:03:44,161 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 19:03:48,518 [MainThread  ] [DEBUG]  Got trigger after 4.356347560882568
+2020-08-18 19:13:48,516 [MainThread  ] [DEBUG]  
+Duration: 599.9872400760651
+2020-08-18 19:13:48,528 [MainThread  ] [DEBUG]  Tot trigger count: 4*65520 + 37870 - 0 = 299950
+2020-08-18 19:13:48,528 [MainThread  ] [DEBUG]  Got 299246 images from BlackFly (tot exposure count)
+2020-08-18 19:13:48,528 [MainThread  ] [DEBUG]  Missed 705 (0.235%)
+2020-08-18 19:13:48,529 [MainThread  ] [DEBUG]  Average iter time: 0.0004332679133561755
+2020-08-18 19:13:48,530 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 299993.0
+2020-08-18 19:13:48,530 [MainThread  ] [DEBUG]  Resulting framerate: 498.75394010389664
+2020-08-18 19:13:48,531 [MainThread  ] [DEBUG]  No. of empty frames: 1085549
+2020-08-18 19:13:48,546 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 19:13:53,555 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 21:18:22,594 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 21:18:22,595 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-18 21:18:22,595 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 21:18:22,600 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 21:18:22,612 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 21:18:22,627 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 21:18:22,719 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 21:21:12,087 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 21:21:12,088 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-18 21:21:12,088 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 21:21:12,091 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 21:21:12,096 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 21:21:12,097 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 21:21:12,143 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 17:02:56,228 [MainThread  ] [DEBUG]  Initial trigger counter: 1
+2020-08-19 17:02:56,229 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-19 17:03:12,666 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 17:03:12,666 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:21:19,911 [MainThread  ] [DEBUG]  pickle loaded: /home/titan/.vscode/extensions/ms-python.python-2020.8.101144/pythonFiles/lib/python/jedi/third_party/typeshed/stdlib/2and3/builtins.pyi
+2020-08-19 18:21:19,933 [MainThread  ] [DEBUG]  pickle loaded: /home/titan/.vscode/extensions/ms-python.python-2020.8.101144/pythonFiles/lib/python/jedi/third_party/typeshed/stdlib/3/sys.pyi
+2020-08-19 18:21:20,023 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:20,023 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:20,024 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:20,025 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:20,025 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:22,842 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:22,845 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:22,847 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:22,851 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:22,853 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:23,118 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:23,120 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:23,121 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:23,123 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:23,125 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:23,584 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:23,586 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:23,589 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:23,591 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:23,592 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:23,785 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:23,786 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:23,787 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:23,788 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:23,788 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:24,058 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:24,061 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:24,065 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:24,068 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:24,069 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:24,256 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:24,259 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:24,261 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:24,264 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:24,266 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:24,665 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:24,666 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:24,666 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:24,668 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:24,668 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:24,799 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:24,800 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:24,802 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:24,804 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:24,805 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:24,943 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:24,946 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:24,950 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:24,953 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:24,956 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:25,115 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:25,116 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:25,117 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:25,118 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:25,119 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:25,310 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:25,312 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:25,314 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:25,316 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:25,317 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:25,381 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:25,382 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:25,383 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:25,385 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:25,386 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:25,472 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:25,473 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:25,474 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:25,475 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:25,476 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:29,439 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:29,440 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:29,441 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:29,443 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:29,444 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:29,647 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:29,648 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:29,650 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:29,652 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:29,653 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:29,695 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:29,696 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:29,696 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:29,697 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:29,698 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:21:29,744 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:21:29,745 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:21:29,745 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:21:29,746 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:21:29,746 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:22,304 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:22,304 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:22,305 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:22,305 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:22,306 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:23,774 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:23,775 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:23,776 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:23,777 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:23,779 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:28,731 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:28,734 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:28,738 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:28,741 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:28,743 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:29,024 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:29,025 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:29,027 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:29,029 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:29,030 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:29,546 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:29,547 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:29,548 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:29,549 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:29,551 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:29,704 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:29,706 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:29,707 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:29,709 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:29,710 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:29,967 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:29,970 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:29,971 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:29,973 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:29,975 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:30,167 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:30,171 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:30,173 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:30,177 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:30,178 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:30,473 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:30,476 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:30,478 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:30,483 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:30,486 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:30,637 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:30,640 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:30,642 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:30,646 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:30,649 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:30,773 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:30,775 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:30,776 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:30,778 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:30,780 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:30,909 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:30,912 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:30,914 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:30,916 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:30,919 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:31,132 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:31,135 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:31,139 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:31,142 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:31,144 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:31,307 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:31,310 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:31,312 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:31,314 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:31,316 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:35,351 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:35,354 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:35,356 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:35,360 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:35,362 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:35,569 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:35,572 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:35,574 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:35,577 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:35,579 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:35,643 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:35,644 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:35,645 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:35,647 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:35,648 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:35,723 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:35,724 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:35,725 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:35,726 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:35,727 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:39,940 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:39,943 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:39,945 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:39,948 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:39,951 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,128 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,131 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,134 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,138 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,140 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,329 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,330 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,332 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,333 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,334 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,408 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,409 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,409 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,410 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,411 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,536 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,537 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,538 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,539 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,540 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,717 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,720 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,724 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,727 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,730 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:40,886 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:40,887 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:40,888 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:40,889 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:40,890 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:44,397 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:44,398 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:44,399 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:44,400 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:44,401 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:44,648 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:44,651 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:44,655 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:44,658 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:44,659 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:45,577 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:45,580 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:45,583 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:45,586 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:45,587 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:45,734 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:45,736 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:45,738 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:45,741 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:45,743 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:45,994 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:45,997 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:45,999 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,002 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,004 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:46,177 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:46,179 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:46,181 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,183 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,186 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:46,427 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:46,429 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:46,431 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,433 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,434 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:46,589 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:46,591 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:46,592 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,593 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,594 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:46,648 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:46,649 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:46,649 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,650 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,651 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:22:46,741 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:22:46,744 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:22:46,747 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:22:46,750 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:22:46,753 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:23:20,906 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:23:20,907 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:23:20,908 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:23:20,909 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:23:20,910 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:23:20,955 [MainThread  ] [DEBUG]  pickle loaded: /home/titan/anaconda3/lib/python3.7/typing.py
+2020-08-19 18:23:28,256 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:23:28,256 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:23:28,258 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:23:28,259 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:23:28,260 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:23:30,561 [MainThread  ] [DEBUG]  Framerate set to 487.4567625851587
+2020-08-19 18:24:08,773 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:24:08,774 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:24:08,775 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:24:08,777 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:24:08,777 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:24:11,343 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:24:11,345 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:24:11,346 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:24:11,348 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:24:11,350 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:24:11,817 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:24:11,818 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:24:11,819 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:24:11,820 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:24:11,821 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:24:14,608 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:24:14,608 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:24:14,608 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:24:14,609 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:24:14,610 [MainThread  ] [DEBUG]  diff parser end
+2020-08-19 18:24:14,868 [MainThread  ] [DEBUG]  diff parser start
+2020-08-19 18:24:14,869 [MainThread  ] [DEBUG]  line_lengths old: 1; new: 1
+2020-08-19 18:24:14,870 [MainThread  ] [DEBUG]  -> code[replace] old[1:1] new[1:1]
+2020-08-19 18:24:14,873 [MainThread  ] [DEBUG]  parse_part from 1 to 1 (to 0 in part parser)
+2020-08-19 18:24:14,874 [MainThread  ] [DEBUG]  diff parser end

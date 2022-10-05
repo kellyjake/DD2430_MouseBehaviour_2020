@@ -1,0 +1,975 @@
+2020-08-18 17:10:26,009 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 17:10:26,018 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 17:10:26,050 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 17:10:26,051 [MainThread  ] [DEBUG]  Buffer cleared!
+2020-08-18 17:10:26,060 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 21:22:18,319 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 21:22:18,320 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-18 21:22:18,320 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 21:22:18,324 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 21:22:18,331 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 21:22:18,332 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 21:22:18,394 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 21:22:55,361 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 21:22:55,362 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-18 21:22:55,362 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 21:22:55,365 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 21:22:55,370 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 21:22:55,372 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 21:22:55,432 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 21:59:47,723 [MainThread  ] [DEBUG]  Initial trigger counter: 14814
+2020-08-18 21:59:47,724 [MainThread  ] [DEBUG]  Initial exposure counter: 5375
+2020-08-18 21:59:47,724 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 21:59:47,728 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 21:59:47,733 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 21:59:47,734 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 21:59:47,772 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 21:59:52,085 [MainThread  ] [DEBUG]  Got trigger after 4.312840938568115
+2020-08-18 22:00:12,075 [MainThread  ] [DEBUG]  
+Duration: 19.988536834716797
+2020-08-18 22:00:12,076 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 24813 - 14814 = 9999
+2020-08-18 22:00:12,076 [MainThread  ] [DEBUG]  Got 9973 images from BlackFly (tot exposure count)
+2020-08-18 22:00:12,079 [MainThread  ] [DEBUG]  Missed 27 (0.27%)
+2020-08-18 22:00:12,080 [MainThread  ] [DEBUG]  Average iter time: 0.0003892758595216327
+2020-08-18 22:00:12,084 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 9994.0
+2020-08-18 22:00:12,095 [MainThread  ] [DEBUG]  Resulting framerate: 498.9359692740762
+2020-08-18 22:00:12,096 [MainThread  ] [DEBUG]  No. of empty frames: 41375
+2020-08-18 22:00:12,113 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:00:17,108 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:01:01,840 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:01:01,841 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:01:01,841 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:01:01,844 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:01:01,857 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:01:01,858 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:01:01,896 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:01:06,253 [MainThread  ] [DEBUG]  Got trigger after 4.357345819473267
+2020-08-18 22:01:36,249 [MainThread  ] [DEBUG]  
+Duration: 29.98779296875
+2020-08-18 22:01:36,250 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 7499 - 0 = 7499
+2020-08-18 22:01:36,250 [MainThread  ] [DEBUG]  Got 7495 images from BlackFly (tot exposure count)
+2020-08-18 22:01:36,250 [MainThread  ] [DEBUG]  Missed 5 (0.067%)
+2020-08-18 22:01:36,250 [MainThread  ] [DEBUG]  Average iter time: 0.0003686449606464977
+2020-08-18 22:01:36,251 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 7496.0
+2020-08-18 22:01:36,251 [MainThread  ] [DEBUG]  Resulting framerate: 249.93503215826752
+2020-08-18 22:01:36,251 [MainThread  ] [DEBUG]  No. of empty frames: 73851
+2020-08-18 22:01:36,260 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:01:41,283 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:03:51,989 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:03:51,990 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:03:51,990 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:03:51,993 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:03:52,007 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:03:52,008 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:03:52,059 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:04:26,392 [MainThread  ] [DEBUG]  
+Duration: 29.995773792266846
+2020-08-18 22:04:26,407 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 7499 - 0 = 7499
+2020-08-18 22:04:26,408 [MainThread  ] [DEBUG]  Got 7495 images from BlackFly (tot exposure count)
+2020-08-18 22:04:26,408 [MainThread  ] [DEBUG]  Missed 5 (0.067%)
+2020-08-18 22:04:26,409 [MainThread  ] [DEBUG]  Average iter time: 0.00038683759291557814
+2020-08-18 22:04:26,411 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 7498.0
+2020-08-18 22:04:26,411 [MainThread  ] [DEBUG]  Resulting framerate: 249.86853321091093
+2020-08-18 22:04:26,412 [MainThread  ] [DEBUG]  No. of empty frames: 70046
+2020-08-18 22:04:26,431 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:04:31,428 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:04:56,067 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:04:56,067 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:04:56,067 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:04:56,071 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:04:56,084 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:04:56,093 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:04:56,155 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:05:30,504 [MainThread  ] [DEBUG]  
+Duration: 29.995771646499634
+2020-08-18 22:05:30,504 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 7499 - 0 = 7499
+2020-08-18 22:05:30,505 [MainThread  ] [DEBUG]  Got 7495 images from BlackFly (tot exposure count)
+2020-08-18 22:05:30,505 [MainThread  ] [DEBUG]  Missed 5 (0.067%)
+2020-08-18 22:05:30,505 [MainThread  ] [DEBUG]  Average iter time: 0.0003661056930930483
+2020-08-18 22:05:30,505 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 7498.0
+2020-08-18 22:05:30,506 [MainThread  ] [DEBUG]  Resulting framerate: 249.86855108542045
+2020-08-18 22:05:30,506 [MainThread  ] [DEBUG]  No. of empty frames: 74437
+2020-08-18 22:05:30,514 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:05:35,541 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:05:43,615 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:05:43,615 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:05:43,615 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:05:43,619 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:05:43,632 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:05:43,634 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:05:43,708 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:06:48,086 [MainThread  ] [DEBUG]  
+Duration: 59.99261522293091
+2020-08-18 22:06:48,098 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 14998 - 0 = 14998
+2020-08-18 22:06:48,099 [MainThread  ] [DEBUG]  Got 14990 images from BlackFly (tot exposure count)
+2020-08-18 22:06:48,103 [MainThread  ] [DEBUG]  Missed 9 (0.06%)
+2020-08-18 22:06:48,130 [MainThread  ] [DEBUG]  Average iter time: 0.0004355117546237507
+2020-08-18 22:06:48,130 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 14998.0
+2020-08-18 22:06:48,130 [MainThread  ] [DEBUG]  Resulting framerate: 249.86408650960743
+2020-08-18 22:06:48,131 [MainThread  ] [DEBUG]  No. of empty frames: 122762
+2020-08-18 22:06:48,143 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:06:53,125 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:09:01,545 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:09:01,546 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:09:01,546 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:09:01,549 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:09:01,564 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:09:01,565 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:09:01,617 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:10:05,980 [MainThread  ] [DEBUG]  
+Duration: 59.994534969329834
+2020-08-18 22:10:05,991 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 14998 - 0 = 14998
+2020-08-18 22:10:05,991 [MainThread  ] [DEBUG]  Got 14990 images from BlackFly (tot exposure count)
+2020-08-18 22:10:05,992 [MainThread  ] [DEBUG]  Missed 9 (0.06%)
+2020-08-18 22:10:05,992 [MainThread  ] [DEBUG]  Average iter time: 0.00047601487657658457
+2020-08-18 22:10:05,993 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 14998.0
+2020-08-18 22:10:05,995 [MainThread  ] [DEBUG]  Resulting framerate: 249.85609118669106
+2020-08-18 22:10:05,995 [MainThread  ] [DEBUG]  No. of empty frames: 111045
+2020-08-18 22:10:06,006 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:10:11,017 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:10:15,932 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:10:15,933 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:10:15,933 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:10:15,936 [MainThread  ] [DEBUG]  Framerate set to 249.87056704627003
+2020-08-18 22:10:15,950 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:10:15,960 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:10:16,024 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:10:20,368 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:11:20,364 [MainThread  ] [DEBUG]  
+Duration: 59.987553358078
+2020-08-18 22:11:20,375 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 14998 - 0 = 14998
+2020-08-18 22:11:20,376 [MainThread  ] [DEBUG]  Got 14990 images from BlackFly (tot exposure count)
+2020-08-18 22:11:20,377 [MainThread  ] [DEBUG]  Missed 9 (0.06%)
+2020-08-18 22:11:20,378 [MainThread  ] [DEBUG]  Average iter time: 0.00042731351629526367
+2020-08-18 22:11:20,379 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 14996.0
+2020-08-18 22:11:20,379 [MainThread  ] [DEBUG]  Resulting framerate: 249.88517052065146
+2020-08-18 22:11:20,380 [MainThread  ] [DEBUG]  No. of empty frames: 125393
+2020-08-18 22:11:20,390 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:11:25,407 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:12:15,504 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:12:15,505 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:12:15,505 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:12:15,508 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 22:12:15,521 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:12:15,521 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:12:15,558 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:12:19,903 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:13:19,921 [MainThread  ] [DEBUG]  
+Duration: 60.00850248336792
+2020-08-18 22:13:19,921 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 30004 - 0 = 30004
+2020-08-18 22:13:19,922 [MainThread  ] [DEBUG]  Got 23486 images from BlackFly (tot exposure count)
+2020-08-18 22:13:19,922 [MainThread  ] [DEBUG]  Missed 6519 (21.727%)
+2020-08-18 22:13:19,922 [MainThread  ] [DEBUG]  Average iter time: 0.0025550754697848898
+2020-08-18 22:13:19,923 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 30004.0
+2020-08-18 22:13:19,923 [MainThread  ] [DEBUG]  Resulting framerate: 391.3778719358882
+2020-08-18 22:13:19,923 [MainThread  ] [DEBUG]  No. of empty frames: 0
+2020-08-18 22:13:19,932 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:13:24,968 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:14:02,918 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:14:02,918 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:14:02,919 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:14:02,923 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 22:14:02,938 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:14:02,946 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:14:03,033 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:14:07,404 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:15:07,401 [MainThread  ] [DEBUG]  
+Duration: 59.98779559135437
+2020-08-18 22:15:07,410 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:15:07,411 [MainThread  ] [DEBUG]  Got 29924 images from BlackFly (tot exposure count)
+2020-08-18 22:16:59,671 [MainThread  ] [DEBUG]  Initial trigger counter: 34855
+2020-08-18 22:16:59,671 [MainThread  ] [DEBUG]  Initial exposure counter: 34774
+2020-08-18 22:16:59,671 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:16:59,675 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 22:16:59,690 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:16:59,691 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:16:59,731 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:17:04,090 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:17:14,089 [MainThread  ] [DEBUG]  
+Duration: 9.995266914367676
+2020-08-18 22:17:14,099 [MainThread  ] [DEBUG]  Tot trigger count: 1*65520 + 0 - 34855 = 30665
+2020-08-18 22:17:14,099 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 34774 - 34774 = 0
+2020-08-18 22:17:14,100 [MainThread  ] [DEBUG]  Got 4986 images from BlackFly (tot exposure count)
+2020-08-18 22:17:14,100 [MainThread  ] [DEBUG]  Missed 25680 (83.744%)
+2020-08-18 22:17:14,101 [MainThread  ] [DEBUG]  Average iter time: 5.4944407937551815e-05
+2020-08-18 22:17:14,123 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4997.0
+2020-08-18 22:17:14,123 [MainThread  ] [DEBUG]  Resulting framerate: 498.83610339938843
+2020-08-18 22:17:14,124 [MainThread  ] [DEBUG]  No. of empty frames: 176930
+2020-08-18 22:17:14,137 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:17:19,150 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:18:54,249 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:18:54,249 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:18:54,249 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:18:54,253 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 22:18:54,266 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:18:54,268 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:18:54,340 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:18:58,693 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:19:58,690 [MainThread  ] [DEBUG]  
+Duration: 59.995532751083374
+2020-08-18 22:19:58,702 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:19:58,702 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:19:58,703 [MainThread  ] [DEBUG]  Got 29924 images from BlackFly (tot exposure count)
+2020-08-18 22:21:02,369 [MainThread  ] [DEBUG]  Initial trigger counter: 32495
+2020-08-18 22:21:02,369 [MainThread  ] [DEBUG]  Initial exposure counter: 32419
+2020-08-18 22:21:02,369 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:21:02,373 [MainThread  ] [DEBUG]  Framerate set to 499.33289125728027
+2020-08-18 22:21:02,379 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:21:02,379 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:21:02,422 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:21:06,777 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:21:26,773 [MainThread  ] [DEBUG]  
+Duration: 19.995518684387207
+2020-08-18 22:21:26,773 [MainThread  ] [DEBUG]  Tot trigger count: 1*65520 + 0 - 32495 = 33025
+2020-08-18 22:21:26,773 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 32419 - 32419 = 0
+2020-08-18 22:21:26,774 [MainThread  ] [DEBUG]  Got 9974 images from BlackFly (tot exposure count)
+2020-08-18 22:21:26,774 [MainThread  ] [DEBUG]  Missed 23052 (69.802%)
+2020-08-18 22:21:26,777 [MainThread  ] [DEBUG]  Average iter time: 4.913386741789662e-05
+2020-08-18 22:21:26,777 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 9997.0
+2020-08-18 22:21:26,778 [MainThread  ] [DEBUG]  Resulting framerate: 498.8117666478862
+2020-08-18 22:21:26,779 [MainThread  ] [DEBUG]  No. of empty frames: 396986
+2020-08-18 22:21:26,793 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:21:31,829 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:25:41,801 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:25:41,801 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-18 22:25:41,801 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 22:25:41,805 [MainThread  ] [DEBUG]  Framerate set to 199.92898522444827
+2020-08-18 22:25:41,819 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:25:41,828 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:25:41,895 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:25:46,257 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:26:06,253 [MainThread  ] [DEBUG]  
+Duration: 19.993679523468018
+2020-08-18 22:26:06,263 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:26:06,264 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 1 - 1 = 0
+2020-08-18 22:26:06,264 [MainThread  ] [DEBUG]  Got 3998 images from BlackFly (tot exposure count)
+2020-08-18 22:26:06,264 [MainThread  ] [DEBUG]  Average iter time: 5.398488356766044e-05
+2020-08-18 22:26:06,265 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 3998.0
+2020-08-18 22:26:06,266 [MainThread  ] [DEBUG]  Resulting framerate: 199.96319313347303
+2020-08-18 22:26:06,267 [MainThread  ] [DEBUG]  No. of empty frames: 366359
+2020-08-18 22:26:06,277 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:26:11,316 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:31:23,730 [MainThread  ] [DEBUG]  Initial trigger counter: 23655
+2020-08-18 22:31:23,731 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:31:23,731 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 22:31:23,734 [MainThread  ] [DEBUG]  Framerate set to 199.92898522444827
+2020-08-18 22:31:23,745 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:31:23,746 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:31:23,790 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:31:23,795 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:31:48,135 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:31:48,137 [MainThread  ] [DEBUG]  
+Duration: 24.33209228515625
+2020-08-18 22:31:48,138 [MainThread  ] [DEBUG]  Tot trigger count: 1*65520 + 0 - 23655 = 41865
+2020-08-18 22:31:48,138 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:31:48,138 [MainThread  ] [DEBUG]  Got 4464 images from BlackFly (tot exposure count)
+2020-08-18 22:31:48,139 [MainThread  ] [DEBUG]  Missed 37402 (89.34%)
+2020-08-18 22:31:48,139 [MainThread  ] [DEBUG]  Average iter time: 4.6334398352359176e-05
+2020-08-18 22:31:48,140 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4866.0
+2020-08-18 22:31:48,141 [MainThread  ] [DEBUG]  Resulting framerate: 183.46141168974833
+2020-08-18 22:31:48,142 [MainThread  ] [DEBUG]  No. of empty frames: 520677
+2020-08-18 22:31:53,194 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:32:46,433 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:32:46,434 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:32:46,434 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 22:32:46,439 [MainThread  ] [DEBUG]  Framerate set to 204.88041539913982
+2020-08-18 22:32:46,454 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:32:46,466 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:32:46,514 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:32:50,867 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:33:10,870 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:33:10,875 [MainThread  ] [DEBUG]  
+Duration: 19.994521856307983
+2020-08-18 22:33:10,876 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 3999 - 0 = 3999
+2020-08-18 22:33:10,878 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 4000 - 0 = 4000
+2020-08-18 22:33:10,878 [MainThread  ] [DEBUG]  Got 3999 images from BlackFly (tot exposure count)
+2020-08-18 22:33:10,879 [MainThread  ] [DEBUG]  Missed 1 (0.025%)
+2020-08-18 22:33:10,879 [MainThread  ] [DEBUG]  Average iter time: 0.0017476201255404234
+2020-08-18 22:33:10,882 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 3998.0
+2020-08-18 22:33:10,882 [MainThread  ] [DEBUG]  Resulting framerate: 200.0047827469489
+2020-08-18 22:33:10,883 [MainThread  ] [DEBUG]  No. of empty frames: 7442
+2020-08-18 22:33:15,919 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:34:20,549 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:34:20,549 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:34:20,550 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 22:34:20,553 [MainThread  ] [DEBUG]  Framerate set to 204.88041539913982
+2020-08-18 22:34:20,566 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:34:20,566 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:34:20,612 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:34:24,939 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:35:24,962 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:35:24,964 [MainThread  ] [DEBUG]  
+Duration: 59.9980263710022
+2020-08-18 22:35:24,964 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 11999 - 0 = 11999
+2020-08-18 22:35:24,964 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:35:24,965 [MainThread  ] [DEBUG]  Got 11998 images from BlackFly (tot exposure count)
+2020-08-18 22:35:24,965 [MainThread  ] [DEBUG]  Missed 2 (0.017%)
+2020-08-18 22:35:24,965 [MainThread  ] [DEBUG]  Average iter time: 0.00038269905069017066
+2020-08-18 22:35:24,966 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 11999.0
+2020-08-18 22:35:24,967 [MainThread  ] [DEBUG]  Resulting framerate: 199.9732445499038
+2020-08-18 22:35:24,967 [MainThread  ] [DEBUG]  No. of empty frames: 144778
+2020-08-18 22:35:30,037 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:38:44,695 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:38:44,695 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:38:44,695 [MainThread  ] [DEBUG]  Given frequency: 200
+2020-08-18 22:38:44,700 [MainThread  ] [DEBUG]  Framerate set to 204.88041539913982
+2020-08-18 22:38:44,712 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:38:44,713 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:38:44,763 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:38:49,092 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:40:49,094 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:40:49,100 [MainThread  ] [DEBUG]  
+Duration: 119.99310326576233
+2020-08-18 22:40:49,102 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 23996 - 0 = 23996
+2020-08-18 22:40:49,112 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:40:49,113 [MainThread  ] [DEBUG]  Got 23995 images from BlackFly (tot exposure count)
+2020-08-18 22:40:49,114 [MainThread  ] [DEBUG]  Missed 2 (0.008%)
+2020-08-18 22:40:49,114 [MainThread  ] [DEBUG]  Average iter time: 0.0003923446005890815
+2020-08-18 22:40:49,115 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 23998.0
+2020-08-18 22:40:49,115 [MainThread  ] [DEBUG]  Resulting framerate: 199.96982615622127
+2020-08-18 22:40:49,115 [MainThread  ] [DEBUG]  No. of empty frames: 281841
+2020-08-18 22:40:54,140 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:41:25,483 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:41:25,483 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:41:25,483 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:41:25,487 [MainThread  ] [DEBUG]  Framerate set to 254.86382116307615
+2020-08-18 22:41:25,501 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:41:25,517 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:41:25,587 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:41:29,922 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:43:29,925 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:43:29,932 [MainThread  ] [DEBUG]  
+Duration: 119.99464559555054
+2020-08-18 22:43:29,933 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29995 - 0 = 29995
+2020-08-18 22:43:29,934 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:43:29,948 [MainThread  ] [DEBUG]  Got 29994 images from BlackFly (tot exposure count)
+2020-08-18 22:43:29,948 [MainThread  ] [DEBUG]  Missed 2 (0.007%)
+2020-08-18 22:43:29,948 [MainThread  ] [DEBUG]  Average iter time: 0.00041427891742552327
+2020-08-18 22:43:29,949 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29998.0
+2020-08-18 22:43:29,949 [MainThread  ] [DEBUG]  Resulting framerate: 249.96115327592744
+2020-08-18 22:43:29,950 [MainThread  ] [DEBUG]  No. of empty frames: 259653
+2020-08-18 22:43:34,989 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:46:00,732 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:46:00,733 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:46:00,733 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-18 22:46:00,737 [MainThread  ] [DEBUG]  Framerate set to 254.86382116307615
+2020-08-18 22:46:00,751 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:46:00,752 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:46:00,830 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:46:05,229 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:48:05,232 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:48:05,240 [MainThread  ] [DEBUG]  
+Duration: 119.99412369728088
+2020-08-18 22:48:05,241 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29995 - 0 = 29995
+2020-08-18 22:48:05,242 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 29995 - 0 = 29995
+2020-08-18 22:48:05,243 [MainThread  ] [DEBUG]  Got 29994 images from BlackFly (tot exposure count)
+2020-08-18 22:48:05,243 [MainThread  ] [DEBUG]  Missed 2 (0.007%)
+2020-08-18 22:48:05,244 [MainThread  ] [DEBUG]  Average iter time: 0.002448759717915205
+2020-08-18 22:48:05,244 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29998.0
+2020-08-18 22:48:05,245 [MainThread  ] [DEBUG]  Resulting framerate: 249.96224044827684
+2020-08-18 22:48:05,245 [MainThread  ] [DEBUG]  No. of empty frames: 19008
+2020-08-18 22:48:10,276 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:50:28,887 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:50:28,892 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:50:28,893 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:50:28,898 [MainThread  ] [DEBUG]  Framerate set to 504.2681254134999
+2020-08-18 22:50:28,902 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:50:28,903 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:50:29,000 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:51:32,817 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:51:32,817 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:51:32,817 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:51:32,821 [MainThread  ] [DEBUG]  Framerate set to 504.2681254134999
+2020-08-18 22:51:32,827 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:51:32,828 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:51:32,867 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:51:37,219 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:53:37,227 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:53:37,227 [MainThread  ] [DEBUG]  
+Duration: 119.9958987236023
+2020-08-18 22:53:37,228 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 59991 - 0 = 59991
+2020-08-18 22:53:37,228 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:53:37,228 [MainThread  ] [DEBUG]  Got 59989 images from BlackFly (tot exposure count)
+2020-08-18 22:53:37,228 [MainThread  ] [DEBUG]  Missed 3 (0.005%)
+2020-08-18 22:53:37,228 [MainThread  ] [DEBUG]  Average iter time: 0.0005534355627875763
+2020-08-18 22:53:37,229 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 59997.0
+2020-08-18 22:53:37,229 [MainThread  ] [DEBUG]  Resulting framerate: 499.9254194360279
+2020-08-18 22:53:37,229 [MainThread  ] [DEBUG]  No. of empty frames: 156831
+2020-08-18 22:53:42,271 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 22:56:40,743 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 22:56:40,743 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 22:56:40,744 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 22:56:40,747 [MainThread  ] [DEBUG]  Framerate set to 504.2681254134999
+2020-08-18 22:56:40,751 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 22:56:40,751 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 22:56:40,794 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 22:56:45,161 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 22:58:45,168 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 22:58:45,172 [MainThread  ] [DEBUG]  
+Duration: 119.99564170837402
+2020-08-18 22:58:45,173 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 59991 - 0 = 59991
+2020-08-18 22:58:45,173 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 22:58:45,173 [MainThread  ] [DEBUG]  Got 59989 images from BlackFly (tot exposure count)
+2020-08-18 22:58:45,174 [MainThread  ] [DEBUG]  Missed 3 (0.005%)
+2020-08-18 22:58:45,175 [MainThread  ] [DEBUG]  Average iter time: 0.0005130979056651231
+2020-08-18 22:58:45,176 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 59997.0
+2020-08-18 22:58:45,176 [MainThread  ] [DEBUG]  Resulting framerate: 499.9264902119658
+2020-08-18 22:58:45,177 [MainThread  ] [DEBUG]  No. of empty frames: 173876
+2020-08-18 22:58:50,215 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-18 23:03:03,741 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-18 23:03:03,741 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-18 23:03:03,741 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-18 23:03:03,745 [MainThread  ] [DEBUG]  Framerate set to 504.2681254134999
+2020-08-18 23:03:03,759 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-18 23:03:03,767 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-18 23:03:03,861 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-18 23:03:08,514 [MainThread  ] [DEBUG]  Got first frame
+2020-08-18 23:13:08,522 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-18 23:13:08,523 [MainThread  ] [DEBUG]  
+Duration: 599.9932241439819
+2020-08-18 23:13:08,524 [MainThread  ] [DEBUG]  Tot trigger count: 4*65520 + 37868 - 0 = 299948
+2020-08-18 23:13:08,524 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-18 23:13:08,524 [MainThread  ] [DEBUG]  Got 299761 images from BlackFly (tot exposure count)
+2020-08-18 23:13:08,525 [MainThread  ] [DEBUG]  Missed 188 (0.063%)
+2020-08-18 23:13:08,525 [MainThread  ] [DEBUG]  Average iter time: 0.0004640031739288999
+2020-08-18 23:13:08,526 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 299996.0
+2020-08-18 23:13:08,526 [MainThread  ] [DEBUG]  Resulting framerate: 499.6073087786498
+2020-08-18 23:13:08,526 [MainThread  ] [DEBUG]  No. of empty frames: 993319
+2020-08-18 23:13:13,565 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 17:00:41,067 [MainThread  ] [DEBUG]  Initial trigger counter: 1
+2020-08-19 17:00:41,068 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-19 17:00:41,068 [MainThread  ] [DEBUG]  Given frequency: 100
+2020-08-19 17:00:41,071 [MainThread  ] [DEBUG]  Framerate set to 104.98476041217857
+2020-08-19 17:00:41,074 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 17:00:41,074 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 17:07:48,570 [MainThread  ] [DEBUG]  Initial trigger counter: 1
+2020-08-19 17:07:48,570 [MainThread  ] [DEBUG]  Initial exposure counter: 1
+2020-08-19 17:07:48,570 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 17:07:48,573 [MainThread  ] [DEBUG]  Framerate set to 437.3764411553736
+2020-08-19 17:07:48,576 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 17:07:48,576 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 17:07:48,584 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 17:07:50,079 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 17:08:02,595 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  
+Duration: 12.504412651062012
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 6258 - 1 = 6257
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 1 - 1 = 0
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Got 5213 images from BlackFly (tot exposure count)
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Missed 1045 (16.701%)
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Average iter time: 0.00041443764586576997
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 6252.0
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  Resulting framerate: 416.8928317922437
+2020-08-19 17:08:02,597 [MainThread  ] [DEBUG]  No. of empty frames: 24959
+2020-08-19 17:08:07,592 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 17:15:36,633 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 17:15:36,633 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 17:15:36,633 [MainThread  ] [DEBUG]  Given frequency: 250
+2020-08-19 17:15:36,636 [MainThread  ] [DEBUG]  Framerate set to 254.91787565717829
+2020-08-19 17:15:36,639 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 17:15:36,640 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 17:15:36,647 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 17:15:40,673 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 17:15:50,667 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  
+Duration: 9.985386848449707
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 2499 - 0 = 2499
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Got 2498 images from BlackFly (tot exposure count)
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Missed 2 (0.08%)
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Average iter time: 0.0002848247717624995
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 2496.0
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  Resulting framerate: 250.16557073978862
+2020-08-19 17:15:50,668 [MainThread  ] [DEBUG]  No. of empty frames: 32560
+2020-08-19 17:15:55,670 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 17:16:08,833 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 17:16:08,833 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 17:16:08,833 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 17:16:08,836 [MainThread  ] [DEBUG]  Framerate set to 437.3764411553736
+2020-08-19 17:16:08,840 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 17:16:08,840 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 17:16:08,848 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 17:16:12,876 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 17:16:22,872 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 17:16:22,872 [MainThread  ] [DEBUG]  
+Duration: 9.98347282409668
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4998 - 0 = 4998
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Got 4164 images from BlackFly (tot exposure count)
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Missed 835 (16.707%)
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Average iter time: 0.00038570054180562044
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4991.0
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  Resulting framerate: 417.08933087387504
+2020-08-19 17:16:22,873 [MainThread  ] [DEBUG]  No. of empty frames: 21720
+2020-08-19 17:16:27,871 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:27:01,735 [MainThread  ] [DEBUG]  Initial trigger counter: 6243
+2020-08-19 18:27:01,736 [MainThread  ] [DEBUG]  Initial exposure counter: 5962
+2020-08-19 18:27:01,736 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:27:01,741 [MainThread  ] [DEBUG]  Framerate set to 487.4567625851587
+2020-08-19 18:27:01,746 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:27:01,747 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:27:53,935 [MainThread  ] [DEBUG]  Initial trigger counter: 14758
+2020-08-19 18:27:53,935 [MainThread  ] [DEBUG]  Initial exposure counter: 14084
+2020-08-19 18:27:53,935 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:27:53,938 [MainThread  ] [DEBUG]  Framerate set to 487.4567625851587
+2020-08-19 18:27:53,942 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:27:53,942 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:28:38,926 [MainThread  ] [DEBUG]  Initial trigger counter: 22259
+2020-08-19 18:28:38,926 [MainThread  ] [DEBUG]  Initial exposure counter: 21245
+2020-08-19 18:28:38,926 [MainThread  ] [DEBUG]  Given frequency: 100
+2020-08-19 18:28:38,929 [MainThread  ] [DEBUG]  Framerate set to 104.98476041217857
+2020-08-19 18:28:38,932 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:28:38,932 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:29:14,234 [MainThread  ] [DEBUG]  Initial trigger counter: 29760
+2020-08-19 18:29:14,234 [MainThread  ] [DEBUG]  Initial exposure counter: 22822
+2020-08-19 18:29:14,234 [MainThread  ] [DEBUG]  Given frequency: 100
+2020-08-19 18:29:14,239 [MainThread  ] [DEBUG]  Framerate set to 104.98476041217857
+2020-08-19 18:29:14,245 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:29:14,245 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:29:59,360 [MainThread  ] [DEBUG]  Initial trigger counter: 37260
+2020-08-19 18:29:59,360 [MainThread  ] [DEBUG]  Initial exposure counter: 24398
+2020-08-19 18:29:59,361 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:29:59,364 [MainThread  ] [DEBUG]  Framerate set to 487.4567625851587
+2020-08-19 18:29:59,367 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:29:59,367 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:29:59,375 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:30:03,400 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:30:13,397 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  
+Duration: 9.986474514007568
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 42259 - 37260 = 4999
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 24398 - 24398 = 0
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Got 4770 images from BlackFly (tot exposure count)
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Missed 230 (4.601%)
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Average iter time: 0.00034457506431604334
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4993.0
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  Resulting framerate: 477.64603948163494
+2020-08-19 18:30:13,398 [MainThread  ] [DEBUG]  No. of empty frames: 24212
+2020-08-19 18:30:18,399 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:36:09,345 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:36:09,345 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:36:09,345 [MainThread  ] [DEBUG]  Given frequency: 100
+2020-08-19 18:36:09,348 [MainThread  ] [DEBUG]  Framerate set to 104.98476041217857
+2020-08-19 18:36:09,351 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:36:09,352 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:36:09,367 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:36:13,381 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:36:23,375 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:36:23,375 [MainThread  ] [DEBUG]  
+Duration: 9.986581087112427
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4998 - 0 = 4998
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Got 1050 images from BlackFly (tot exposure count)
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Missed 3949 (79.012%)
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Average iter time: 0.0002199251489156869
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 998.0
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  Resulting framerate: 105.14108790995684
+2020-08-19 18:36:23,376 [MainThread  ] [DEBUG]  No. of empty frames: 44359
+2020-08-19 18:36:28,380 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:37:07,595 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:37:07,596 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:37:07,596 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:37:07,599 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:37:07,604 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:37:07,604 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:37:07,615 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:37:11,643 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:37:21,637 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:37:21,638 [MainThread  ] [DEBUG]  
+Duration: 9.983226299285889
+2020-08-19 18:37:21,638 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4999 - 0 = 4999
+2020-08-19 18:37:21,638 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 18:37:21,638 [MainThread  ] [DEBUG]  Got 4997 images from BlackFly (tot exposure count)
+2020-08-19 18:37:21,639 [MainThread  ] [DEBUG]  Missed 3 (0.06%)
+2020-08-19 18:37:21,639 [MainThread  ] [DEBUG]  Average iter time: 0.00033595458000019817
+2020-08-19 18:37:21,639 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4991.0
+2020-08-19 18:37:21,639 [MainThread  ] [DEBUG]  Resulting framerate: 500.53959012803716
+2020-08-19 18:37:21,639 [MainThread  ] [DEBUG]  No. of empty frames: 24719
+2020-08-19 18:37:26,638 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:37:41,538 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:37:41,538 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:37:41,538 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:37:41,541 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:37:41,544 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:37:41,545 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:37:41,553 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:37:45,576 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:37:55,573 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  
+Duration: 9.986426830291748
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 4999 - 0 = 4999
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Got 4997 images from BlackFly (tot exposure count)
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Missed 3 (0.06%)
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Average iter time: 0.0003368330690195544
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 4993.0
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  Resulting framerate: 500.37917314355525
+2020-08-19 18:37:55,574 [MainThread  ] [DEBUG]  No. of empty frames: 24651
+2020-08-19 18:38:00,576 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:38:35,738 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:38:35,738 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:38:35,738 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:38:35,741 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:38:35,744 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:38:35,744 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:38:35,752 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:38:39,765 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:40:39,762 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  
+Duration: 119.9863429069519
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 59985 - 0 = 59985
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Got 59983 images from BlackFly (tot exposure count)
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Missed 3 (0.005%)
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Average iter time: 0.000336543037273444
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 59993.0
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  Resulting framerate: 499.9152282399019
+2020-08-19 18:40:39,763 [MainThread  ] [DEBUG]  No. of empty frames: 296543
+2020-08-19 18:40:44,763 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:41:45,178 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:41:45,178 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:41:45,178 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:41:45,181 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:41:45,185 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:41:45,185 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:41:45,185 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-19 18:41:45,187 [MainThread  ] [DEBUG]  Started proc
+2020-08-19 18:41:45,188 [MainThread  ] [DEBUG]  Starting cam
+2020-08-19 18:41:45,194 [MainThread  ] [DEBUG]  Started cam
+2020-08-19 18:41:45,194 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:41:49,221 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:51:49,216 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  
+Duration: 599.9839196205139
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Tot trigger count: 4*65520 + 37841 - 0 = 299921
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 0 - 0 = 0
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Got 299924 images from BlackFly (tot exposure count)
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Missed -2 (-0.001%)
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Average iter time: 0.0003382580818338781
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 299991.0
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  Resulting framerate: 499.88673061388056
+2020-08-19 18:51:49,217 [MainThread  ] [DEBUG]  No. of empty frames: 1473822
+2020-08-19 18:51:54,218 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:55:22,435 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:55:22,436 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:55:22,436 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:55:22,440 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:55:22,443 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:55:22,444 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:55:22,444 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-19 18:55:22,446 [MainThread  ] [DEBUG]  Started proc
+2020-08-19 18:55:22,446 [MainThread  ] [DEBUG]  Starting cam
+2020-08-19 18:55:22,451 [MainThread  ] [DEBUG]  Started cam
+2020-08-19 18:55:22,452 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:55:26,475 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:56:26,473 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  
+Duration: 59.987271785736084
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29992 - 0 = 29992
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 29993 - 0 = 29993
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Got 29960 images from BlackFly (tot exposure count)
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Missed 33 (0.11%)
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Average iter time: 0.0020022453867068117
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29993.0
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  Resulting framerate: 499.4392828367294
+2020-08-19 18:56:26,474 [MainThread  ] [DEBUG]  No. of empty frames: 0
+2020-08-19 18:56:31,477 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-19 18:58:07,368 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-19 18:58:07,368 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-19 18:58:07,368 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-19 18:58:07,373 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-19 18:58:07,379 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-19 18:58:07,380 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-19 18:58:07,380 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-19 18:58:07,386 [MainThread  ] [DEBUG]  Started proc
+2020-08-19 18:58:07,389 [MainThread  ] [DEBUG]  Starting cam
+2020-08-19 18:58:07,401 [MainThread  ] [DEBUG]  Started cam
+2020-08-19 18:58:07,401 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-19 18:58:11,412 [MainThread  ] [DEBUG]  Got first frame
+2020-08-19 18:59:11,411 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-19 18:59:11,411 [MainThread  ] [DEBUG]  
+Duration: 59.98747229576111
+2020-08-19 18:59:11,411 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29993 - 0 = 29993
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 29993 - 0 = 29993
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Got 29991 images from BlackFly (tot exposure count)
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Missed 3 (0.01%)
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Average iter time: 1.0022467093673018 ms
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29993.0
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  Resulting framerate: 499.9543880117658
+2020-08-19 18:59:11,412 [MainThread  ] [DEBUG]  No. of empty frames: 29862
+2020-08-19 18:59:16,412 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 18:37:05,769 [MainThread  ] [DEBUG]  Initial trigger counter: 55411
+2020-08-20 18:37:05,769 [MainThread  ] [DEBUG]  Initial exposure counter: 61829
+2020-08-20 18:37:05,769 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 18:37:05,772 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 18:37:05,776 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-20 18:37:05,776 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-20 18:37:05,776 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 18:37:05,778 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 18:37:05,778 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 18:37:05,785 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 18:37:05,785 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 18:37:09,811 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 18:38:09,805 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 18:38:09,806 [MainThread  ] [DEBUG]  
+Duration: 59.98454165458679
+2020-08-20 18:38:09,806 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 65520 - 55411 = 10109
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 65520 - 61829 = 3691
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Got 29991 images from BlackFly (tot exposure count)
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Missed -19881 (-196.666%)
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Average iter time: 1.0080757874191113 ms
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29992.0
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  Resulting framerate: 499.97881408679063
+2020-08-20 18:38:09,807 [MainThread  ] [DEBUG]  No. of empty frames: 29513
+2020-08-20 18:38:14,806 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 18:46:10,998 [MainThread  ] [DEBUG]  Initial trigger counter: 42578
+2020-08-20 18:46:10,998 [MainThread  ] [DEBUG]  Initial exposure counter: 42540
+2020-08-20 18:46:10,998 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 18:46:11,001 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 18:46:11,004 [MainThread  ] [DEBUG]  Clearing buffer...
+2020-08-20 18:46:11,004 [MainThread  ] [DEBUG]  Cleared 0 images from buffer
+2020-08-20 18:46:11,004 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 18:46:11,006 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 18:46:11,007 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 18:46:11,012 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 18:46:11,012 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 18:46:15,040 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 18:47:15,035 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  
+Duration: 59.98404932022095
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 65520 - 42578 = 22942
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 65520 - 42540 = 22980
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Got 29991 images from BlackFly (tot exposure count)
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Missed -7048 (-30.721%)
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Average iter time: 1.0118596062856724 ms
+2020-08-20 18:47:15,036 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29992.0
+2020-08-20 18:47:15,037 [MainThread  ] [DEBUG]  Resulting framerate: 499.98291779027784
+2020-08-20 18:47:15,037 [MainThread  ] [DEBUG]  No. of empty frames: 29290
+2020-08-20 18:47:20,037 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 18:48:28,091 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 18:48:28,091 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 18:48:28,091 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 18:48:28,096 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 18:48:28,103 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 18:48:28,109 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 18:48:28,111 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 18:48:28,121 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 18:48:28,121 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 18:48:32,141 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 18:49:32,138 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 18:49:32,139 [MainThread  ] [DEBUG]  
+Duration: 59.986963510513306
+2020-08-20 18:49:32,139 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29993 - 0 = 29993
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 29993 - 0 = 29993
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Got 29991 images from BlackFly (tot exposure count)
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Missed 3 (0.01%)
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Average iter time: 1.0098985422399924 ms
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29993.0
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  Resulting framerate: 499.95862842338704
+2020-08-20 18:49:32,140 [MainThread  ] [DEBUG]  No. of empty frames: 29408
+2020-08-20 18:49:37,139 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 18:49:53,036 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 18:49:53,036 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 18:49:53,036 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 18:49:53,039 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 18:49:53,042 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 18:49:53,044 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 18:49:53,045 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 18:49:53,051 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 18:49:53,051 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 18:49:57,078 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 18:51:57,073 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 18:51:57,074 [MainThread  ] [DEBUG]  
+Duration: 119.98423552513123
+2020-08-20 18:51:57,074 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 59985 - 0 = 59985
+2020-08-20 18:51:57,074 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 59985 - 0 = 59985
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  Got 59983 images from BlackFly (tot exposure count)
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  Missed 3 (0.005%)
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  Average iter time: 1.0076273600484669 ms
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 59992.0
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  Resulting framerate: 499.9240086622571
+2020-08-20 18:51:57,075 [MainThread  ] [DEBUG]  No. of empty frames: 59093
+2020-08-20 18:52:02,074 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 18:53:57,785 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 18:53:57,785 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 18:53:57,785 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 18:53:57,788 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 18:53:57,792 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 18:53:57,794 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 18:53:57,794 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 18:53:57,800 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 18:53:57,800 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 18:54:01,828 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 18:55:01,823 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  
+Duration: 59.98541593551636
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 29993 - 0 = 29993
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 29993 - 0 = 29993
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Got 29991 images from BlackFly (tot exposure count)
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Missed 3 (0.01%)
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Average iter time: 1.008090480228495 ms
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 29992.0
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  Resulting framerate: 499.971526949817
+2020-08-20 18:55:01,825 [MainThread  ] [DEBUG]  No. of empty frames: 29513
+2020-08-20 18:55:06,821 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 19:13:32,352 [MainThread  ] [DEBUG]  Initial trigger counter: 5459
+2020-08-20 19:13:32,352 [MainThread  ] [DEBUG]  Initial exposure counter: 5459
+2020-08-20 19:13:32,352 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:13:32,355 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:13:32,359 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:13:32,362 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:13:32,363 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:13:32,371 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:13:32,371 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:13:36,394 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:14:06,391 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 19:14:06,392 [MainThread  ] [DEBUG]  
+Duration: 29.985482215881348
+2020-08-20 19:14:06,392 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 20455 - 5459 = 14996
+2020-08-20 19:14:06,392 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 20456 - 5459 = 14997
+2020-08-20 19:14:06,392 [MainThread  ] [DEBUG]  Got 14994 images from BlackFly (tot exposure count)
+2020-08-20 19:14:06,392 [MainThread  ] [DEBUG]  Missed 3 (0.02%)
+2020-08-20 19:14:06,393 [MainThread  ] [DEBUG]  Average iter time: 1.051015850539129 ms
+2020-08-20 19:14:06,393 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 14992.0
+2020-08-20 19:14:06,393 [MainThread  ] [DEBUG]  Resulting framerate: 500.0419833855018
+2020-08-20 19:14:06,393 [MainThread  ] [DEBUG]  No. of empty frames: 13536
+2020-08-20 19:14:11,390 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 19:14:18,142 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 19:14:18,142 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 19:14:18,142 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:14:18,146 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:14:18,150 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:14:18,153 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:14:18,154 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:14:18,163 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:14:18,163 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:14:22,184 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:15:10,541 [MainThread  ] [DEBUG]  Initial trigger counter: 24174
+2020-08-20 19:15:10,542 [MainThread  ] [DEBUG]  Initial exposure counter: 24179
+2020-08-20 19:15:10,542 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:15:10,547 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:15:10,552 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:15:10,553 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:15:10,554 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:15:10,560 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:15:10,560 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:15:10,567 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:16:54,574 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  
+Duration: 103.99675512313843
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Tot trigger count: 1*65520 + 9650 - 24174 = 50996
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 65520 - 24179 = 41341
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Got 50983 images from BlackFly (tot exposure count)
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Missed 14 (0.027%)
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Average iter time: 1.0578451339959152 ms
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 51998.0
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  Resulting framerate: 490.2364495856919
+2020-08-20 19:16:54,576 [MainThread  ] [DEBUG]  No. of empty frames: 47327
+2020-08-20 19:16:59,573 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 19:17:55,750 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 19:17:55,750 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 19:17:55,750 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:17:55,753 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:17:55,757 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:17:55,759 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:17:55,759 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:17:55,765 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:17:55,765 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:17:59,790 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:18:19,789 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  
+Duration: 19.9878089427948
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 9998 - 0 = 9998
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 9998 - 0 = 9998
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Got 9996 images from BlackFly (tot exposure count)
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Missed 3 (0.03%)
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Average iter time: 1.0002907087776398 ms
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 9993.0
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  Resulting framerate: 500.1048403358566
+2020-08-20 19:18:19,790 [MainThread  ] [DEBUG]  No. of empty frames: 9986
+2020-08-20 19:18:24,785 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 19:18:37,923 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 19:18:37,923 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 19:18:37,923 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:18:37,926 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:18:37,930 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:18:37,931 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:18:37,932 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:18:37,938 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:18:37,938 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:18:41,960 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:20:41,959 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 19:20:41,959 [MainThread  ] [DEBUG]  
+Duration: 119.98676323890686
+2020-08-20 19:20:41,959 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 59985 - 0 = 59985
+2020-08-20 19:20:41,959 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 59985 - 0 = 59985
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  Got 59983 images from BlackFly (tot exposure count)
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  Missed 3 (0.005%)
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  Average iter time: 1.0003315067397005 ms
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 59993.0
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  Resulting framerate: 499.91347696051474
+2020-08-20 19:20:41,960 [MainThread  ] [DEBUG]  No. of empty frames: 59964
+2020-08-20 19:20:46,957 [MainThread  ] [DEBUG]  #################################### END ####################################
+
+2020-08-20 19:22:11,348 [MainThread  ] [DEBUG]  Initial trigger counter: 0
+2020-08-20 19:22:11,349 [MainThread  ] [DEBUG]  Initial exposure counter: 0
+2020-08-20 19:22:11,349 [MainThread  ] [DEBUG]  Given frequency: 500
+2020-08-20 19:22:11,352 [MainThread  ] [DEBUG]  Framerate set to 504.79759635576517
+2020-08-20 19:22:11,355 [MainThread  ] [DEBUG]  Trying to start proc
+2020-08-20 19:22:11,357 [MainThread  ] [DEBUG]  Started proc
+2020-08-20 19:22:11,358 [MainThread  ] [DEBUG]  Starting cam
+2020-08-20 19:22:11,364 [MainThread  ] [DEBUG]  Started cam
+2020-08-20 19:22:11,364 [MainThread  ] [DEBUG]  Waiting for hardware trigger
+2020-08-20 19:22:15,387 [MainThread  ] [DEBUG]  Got first frame
+2020-08-20 19:22:35,386 [MainThread  ] [DEBUG]  Counters reset!
+2020-08-20 19:22:35,387 [MainThread  ] [DEBUG]  
+Duration: 19.987882614135742
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Tot trigger count: 0*65520 + 9998 - 0 = 9998
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Tot exposure count: 0*65520 + 9998 - 0 = 9998
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Got 9996 images from BlackFly (tot exposure count)
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Missed 3 (0.03%)
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Average iter time: 1.0124035158859213 ms
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Expected no. frames (freq*dur): 9993.0
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  Resulting framerate: 500.10299704935596
+2020-08-20 19:22:35,388 [MainThread  ] [DEBUG]  No. of empty frames: 9747
+2020-08-20 19:22:40,385 [MainThread  ] [DEBUG]  #################################### END ####################################
+
