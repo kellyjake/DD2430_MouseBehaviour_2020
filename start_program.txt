@@ -1,5 +1,0 @@
-source ~/anaconda3/etc/profile.d/conda.sh
-
-conda activate DLC-GPU
-
-python src/main_program.py
